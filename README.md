@@ -1,18 +1,20 @@
-# Final-Project
+Final-Project
+==================
 Datavisualisation of the antibiotic consumption in europe and bacteria resistant to these antibiotics.
 
-Problem
-==================
+##Problem
 With this data visualisations the user can observe all bacterium species resistant to a certain antibiotic (family). And the consumption of this antibiotic (family) in europe. Simultaneously it can also show for each individual bacterium to which antibiotics it developed resistance. 
 
 
-Features
-==================
-Visual components
+##Features
+
+###Visual components
 ------------------
 To solve this problem a chord diagram-like visulation will be implemented, which will consist out of two circles: an inner-circle which will contain the different antibiotic families and an outer-circle which will contain different resistant bacterium species. When a certain antibiotic-family is clicked, several chords will connect this family to the bacterium species in the outer-circle which are resistant to this selected family. Simultaneously a new window opens with a chloropleth heat map which shows the consumption of the selected antibiotic-family for each european country. When an individual country is clicked a new window opens with a bar chart that shows the consumption of all different antibiotic families.
 Interactive components
 -------------------
+
+
 
 
 
