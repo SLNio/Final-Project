@@ -1,15 +1,18 @@
 Final-Project: Antibiotics and their resistant bacteria
 ==================
+
+###Shan Li Nio, 6222420
+
 Datavisualisation of the antibiotic consumption in europe and bacteria resistant to these antibiotics.
 
 
 ##Project layout
 
-####Introduction to subject (antibiotic resistance)
+*Introduction to subject (antibiotic resistance)
 
-####Button to start visualisation
+*Button to start visualisation
 
-####Page with room for 3 visualisations: chord diagram, chloropleth map and bar chart
+*Page with room for 3 visualisations: chord diagram, chloropleth map and bar chart
 
 
 ##Interaction within visualisations

@@ -1,9 +1,9 @@
 Final-Project: Antibiotics and their resistant bacteria
 ==================
 
-###Shan Li Nio
+###Shan Li Nio, 6222420
 
-###Datavisualisation of the antibiotic consumption in europe and bacteria resistant to these antibiotics.
+Datavisualisation of the antibiotic consumption in europe and bacteria resistant to these antibiotics.
 
 ##Objective
 With this data visualisations the user can observe all bacteria species resistant to certain antibiotics or antibiotic families and the consumption of these antibiotic families in europe. Simultaneously it can also show for each individual bacterium to which antibiotics it developed resistance. 
