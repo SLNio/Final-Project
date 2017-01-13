@@ -18,7 +18,7 @@ Datavisualisation of the antibiotic consumption in europe and bacteria resistant
 ##Interaction within visualisations
 The user determines for each visualisation which data will be shown.  For the chord diagram the users can determine which connections (chords) they want to show between resistant bacteria and either antibiotics or antibiotic families. Additionally they can determine if they want to show results from a bacterial perspective or from an antibiotic perspective. Both the input of inner-circle as the chords are dependent on the users choice. The previous input of the innercircle will be removed and updated to the new input. The update of the chords will work in a similar way. Implementation of tooltips when hovered over the drawn chords will be considered, even as the implementation of tooltips with information about a selected bacterium or selected antibiotic. Interactive elements within the datamap are tooltips that show the exact antibiotic consumption in defined daily dose (DDD) when hovered over countries and the option to click on countries. The only interactive element within the barcharts are the tooltips with the exact antibiotic consumption when hovered over antibiotic families.
 
-![Circular Chord Diagrams](https://github.com/SLNio/Final-Project/blob/master/doc/Stretched_chorddiagram.jpg)
+![Circular Chord Diagrams](https://github.com/SLNio/Final-Project/blob/master/doc/Stretched_chorddiagram.PNG)
 
 ![Datamap and barchart](https://github.com/SLNio/Final-Project/blob/master/doc/map_barchart.jpg)
 
