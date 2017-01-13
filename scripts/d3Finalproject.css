@@ -1,0 +1,137 @@
+/**************************************************************************	
+
+	Name: Shan Li Nio
+    Studentnumber: 6222420
+    Final Project in Datavisualisation
+    Filename: d3Finalproject.css
+
+    Description: Stylesheet of the d3Finalproject.html document.
+
+***************************************************************************/
+
+#chordwrapper {
+	height:500px;
+	width: 1210px;
+	margin: 0 auto;
+	border-style: solid;
+	border-color: #02818a;
+}
+
+#chordtitle {
+	height: 30px;
+	text-align: center;
+}
+
+#chord {
+	position: relative;
+}
+
+#chord_diagram {
+}
+
+img {
+	margin-left: 20px;
+}
+
+#searchbar {
+	position: absolute;
+	top: 60px;
+	right: 20px;
+}
+
+#radio-btn {
+	position: absolute;
+	bottom: 118px;
+	right: 154px;
+}
+
+#wrapper {
+	height:500px;
+	margin: 0 auto;
+	width: 1210px;
+	margin-top: 5px;
+}
+
+#mapwrapper {
+	width: 750px;
+	border-style: solid;
+	border-color: #02818a;
+	float: left;
+}
+
+#maptitle {
+	height: 30px;
+	text-align: center;
+}
+
+#datamap {
+	height:400px;
+	width: 750px;
+	position: relative;
+}
+
+#barwrapper {
+	width: 458px;
+	border-style: solid;
+	border-color: #02818a;
+	float: right;
+}
+
+#barchart {
+	height: 395px;
+	width: 400px;
+	margin-left: 30px;
+	padding-left: 10px;
+	/*box-sizing: content-box;*/
+}
+
+/* Style barchart axes */
+.axis path,
+.axis line 
+{
+	fill: none;
+  	stroke: #000;
+  	shape-rendering: crispEdges;
+}
+
+.d3-tip {
+	font-size: 12px
+}
+
+/* Characteristics of tooltip */
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Small triangle extender for the tooltip */
+.d3-tip:after 
+{
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Reposition tooltips */
+.d3-tip.n:after 
+{
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+#bartitle {
+	height: 30px;
+	text-align: center;
+}
+
