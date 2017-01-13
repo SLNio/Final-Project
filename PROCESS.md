@@ -8,9 +8,11 @@ Datavisualisation of the antibiotic consumption in europe and bacteria resistant
 
 #day 1 
 
-![Visual components](https://github.com/SLNio/Final-Project/blob/master/doc/Overview.jpg)
+![Example Resistance](https://github.com/SLNio/Final-Project/blob/master/doc/Resistance_visualisation.PNG)
 
 Think of three linked visualisations which can be made with the obtained dataset. The most important result that I would like to show, comprises the pattern in antibiotic resistance (so the links between antibiotics and resistant bacteria). The first thing that came to mind were multiple barcharts per antibioticum with the different bacteria on the x-axis and the percentage of resistance on the y-axis. However inspired by the visualisation at http://www.informationisbeautiful.net/visualizations/antibiotic-resistance/ (image above), I would like to show all connections between bacteria and antibiotics in the same visualisation. Therefore I thought of a first visualisation with two circular elements and connecting chords between these two elements. Since I expect the implementation of this visualisation to be complex, I thought of two other visualisation that are easy to implement, yet informative. I have decided to add a chloropleth map of Europe that shows the consumption of an antibiotic family. This map is connected to the previous visualisation in the way that it only shows the consumption of the antibiotic family that is selected in the first visualisation. Furthermore a barchart will be added which shows the consumption of multiple antibiotic families per country that is selected in the map.
+
+![Visual components](https://github.com/SLNio/Final-Project/blob/master/doc/Overview.jpg)
 
 #day 2
 Work on a more detailed idea for every visualisation for the DESIGN document. I have created detailed sketches about the interactivity within the first visualisation. Initially, only the innercircle with antibiotics can be clicked, whereafter connecting chords are drawn between a particular antibiotic and its resistant bacteria. By using a switch (dropdown menu or radio button) there can be switched between the innercircle with antibiotics and the outercircle with
