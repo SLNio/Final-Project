@@ -45,4 +45,4 @@ Furthermore I started to create a prototype of the website. The datamap of europ
 
 
 #day 5
-Couple the datamap to the correct data and link the datamap to the barchart.
+Update documents with latest ideas, change idea of search bar into selection box.
