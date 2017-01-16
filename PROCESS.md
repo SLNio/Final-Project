@@ -43,6 +43,8 @@ Furthermore I started to create a prototype of the website. The datamap of europ
 
 ![Prototype](https://github.com/SLNio/Final-Project/blob/master/doc/Prototype.PNG)
 
-
 #day 5
 Update documents with latest ideas, change idea of search bar into selection box.
+
+#day 6
+Finish two visualisations, so the rest of the week can be spend on the stretched chord diagram. The datamap is coupled to the correct data, both the datamap and the barchart are linked, interactivity of both visualisations is complete. 
