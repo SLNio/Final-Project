@@ -44,7 +44,23 @@ Furthermore I started to create a prototype of the website. The datamap of europ
 ![Prototype](https://github.com/SLNio/Final-Project/blob/master/doc/Prototype.PNG)
 
 #day 5
-Update documents with latest ideas, change idea of search bar into selection box.
+Update documents with latest ideas, change idea of search bar into selection box. Inspired by examples of select2 (https://select2.github.io/examples.html#placeholders).
+
+![Selectionbox](https://github.com/SLNio/Final-Project/blob/master/doc/Navigationbar.jpg)
 
 #day 6
-Finish two visualisations, so the rest of the week can be spend on the stretched chord diagram. The datamap is coupled to the correct data, both the datamap and the barchart are linked, interactivity of both visualisations is complete. 
+Finish two visualisations, so the rest of the week can be spend on the stretched chord diagram. The datamap is coupled to the correct data, both the datamap and the barchart are linked, interactivity of both visualisations is complete. Datamap and barchart still contain minor bugs. 
+
+![Progress](https://github.com/SLNio/Final-Project/blob/master/doc/Progress_map.jpg)
+
+
+Implementation of the selection box was also started with example options. This box will later be coupled to the dataset which contains the list of bacteria and antibiotics. It is planned to write a function in javascript which can add these values to the selection box
+
+![Selectionbox](https://github.com/SLNio/Final-Project/blob/master/doc/Progress_navbar.jpg)
+
+
+
+
+#day 7 
+Start implementation of the stretched chord diagram.
+
