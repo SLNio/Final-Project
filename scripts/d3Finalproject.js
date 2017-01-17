@@ -15,14 +15,24 @@
 	Datamap:
 	http://datamaps.github.io/
 
+	Navigation bar:
+	https://select2.github.io/examples.html#placeholders
+
 ***************************************************************************/
 window.onload = function() {
+
+
+	// Add selection bar with search field
+	$(document).ready(function() {
+		$(".js-example-basic-single").select2();
+		placeholder: 'Select an option'
+	});
 
 	$('#chordtitle').text('Antibiotics and resistant bacteria');
 
 
 
-	draw_map('Macrolides');
+	draw_map('Macrolides', 0);
 
 	draw_barchart('Austria', 'AUT');
 
