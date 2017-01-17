@@ -58,9 +58,9 @@ Implementation of the selection box was also started with example options. This 
 ![Selectionbox](https://github.com/SLNio/Final-Project/blob/master/doc/Progress_navbar.jpg)
 
 #day 7 
-Start implementation of the stretched chord diagram. First of all a normal chord diagram was implemented to understand how the different chord diagram elements work. By understanding the basics, it will also be easier to understand the code of the stretched chord diagram. The chord diagram already has its interactivity, but lacks the connection to the correct data.
+Start implementation of the stretched chord diagram. First of all a normal interactive chord diagram was implemented to understand how the different chord diagram elements work. By understanding the basics, it will also be easier to understand the code of the stretched chord diagram. To simplify the implementation for now, only six datapoints were used. The remaining datapoints will be added later in the process. 
 
-![Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/chorddiagram.jpg)
+![Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/chorddiagram_bacteria.jpg)
 
-![Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/interactive_chorddiagram.jpg)
+![Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/interactive_chorddiagram_bacteria.jpg)
 
