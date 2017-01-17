@@ -53,14 +53,14 @@ Finish two visualisations, so the rest of the week can be spend on the stretched
 
 ![Progress](https://github.com/SLNio/Final-Project/blob/master/doc/Progress_map.jpg)
 
-
 Implementation of the selection box was also started with example options. This box will later be coupled to the dataset which contains the list of bacteria and antibiotics. It is planned to write a function in javascript which can add these values to the selection box
 
 ![Selectionbox](https://github.com/SLNio/Final-Project/blob/master/doc/Progress_navbar.jpg)
 
-
-
-
 #day 7 
-Start implementation of the stretched chord diagram.
+Start implementation of the stretched chord diagram. First of all a normal chord diagram was implemented to understand how the different chord diagram elements work. By understanding the basics, it will also be easier to understand the code of the stretched chord diagram. The chord diagram already has its interactivity, but lacks the connection to the correct data.
+
+![Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/chorddiagram.jpg)
+
+![Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/interactive_chorddiagram.jpg)
 
