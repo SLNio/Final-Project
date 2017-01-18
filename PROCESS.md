@@ -69,6 +69,5 @@ Continue implementation of the stretched chord diagram. The code for the normal 
 
 ![Stretched Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/stretched_chord_bacteria.jpg)
 
-![Stretched Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/stretched__chord_interactive_bacteria.jpg)
-
+![Stretched Chord diagram](https://github.com/SLNio/Final-Project/blob/master/doc/stretched_chord_interactive_bacteria.jpg)
 
