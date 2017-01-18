@@ -64,3 +64,10 @@ Start implementation of the stretched chord diagram. First of all a normal inter
 
 ![Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/interactive_chorddiagram_bacteria.jpg)
 
+#day 8
+Continue implementation of the stretched chord diagram. The code for the normal chord diagram was adjusted so it would look like the stretched chord diagram. The implementation was again performed with only six datapoints.
+
+![Stretched Chord_diagram](https://github.com/SLNio/Final-Project/blob/master/doc/stretched_chord_bacteria.jpg)
+
+![Stretched Chord diagram](https://github.com/SLNio/Final-Project/blob/master/doc/stretched_chord_interactive_bacteria.jpg)
+
