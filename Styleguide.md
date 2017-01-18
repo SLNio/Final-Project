@@ -25,16 +25,12 @@ In je bestand `PROCESS.md` beschrijf je elke dag kort wat je die dag gedaan hebt
 ### Headers
 Begin elke file met een header met:
 
-
-```
 <ul>
 <li>Titel van file</li>
 <li>Beschrijving van functie</li>
 <li>Naam auteur</li>
 <li>Studentennummer</li>
 </ul>
-```
-
 
 ### HTML
 
