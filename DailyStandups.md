@@ -4,7 +4,7 @@
 ## Week 1 Dag 1 - woensdag 11 januari
 
 
-![Selfie dag 1](11jan.jpg)
+![Selfie dag 1](https://github.com/SLNio/Final-Project/blob/master/doc/11jan.jpg)
 
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse en Jan Maarten de Vries  
@@ -17,7 +17,7 @@ Vandaag hebben we onze eerste ideeën aan elkaar voorgelegd aan de hand van de g
 ## Week 1 Dag 2 - donderdag 12 januari 
 
 
-![Selfie dag 2](12jan.jpg)
+![Selfie dag 2](https://github.com/SLNio/Final-Project/blob/master/doc/12jan.jpg)
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim en Eline Jacobse.
 **Afwezig:** Jan Maarten de Vries  
@@ -28,7 +28,7 @@ Na elke update hebben we elkaar technische tips gegeven over verschillende onder
 ## Week 2 Dag 1 - maandag 16 januari 
 
 
-![Selfie dag 3](16jan.jpg)
+![Selfie dag 3](https://github.com/SLNio/Final-Project/blob/master/doc/16jan.jpg)
 
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse en Jan Maarten de Vries
@@ -40,7 +40,7 @@ Vandaag heeft iedereen een plan gemaakt wat hij/zij deze week af wil hebben, wel
 ## Week 2 Dag 2 - dinsdag 17 januari 
 
 
-![Selfie dag 4](17jan.jpg)
+![Selfie dag 4](https://github.com/SLNio/Final-Project/blob/master/doc/17jan.jpg)
 
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse 
@@ -54,7 +54,7 @@ Isa heeft een bar chart gemaakt, alleen de tekst wordt nog niet helemaal mooi we
 ## Week 2 Dag 3 - woensdag 18 januari
 
 
-![Selfie dag 5](18jan.jpg)
+![Selfie dag 5](https://github.com/SLNio/Final-Project/blob/master/doc/18jan.jpg)
 
 
 **Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse 
