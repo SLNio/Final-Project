@@ -10,7 +10,7 @@
 ***************************************************************************/
 
 #chordwrapper {
-	height:500px;
+	height:545px;
 	width: 1210px;
 	margin: 0 auto;
 	border-style: solid;
@@ -27,6 +27,25 @@
 }
 
 #chord_diagram {
+	height: 466px;	
+	width: 700px;
+	margin-top: 5px;
+	margin-left: 50px;
+	position: relative;
+}
+
+.diagram {
+	height: 650px;
+	width: 600px;
+	padding: 500px;
+}
+
+.tickLabels {
+	font-size: 10px;
+}
+
+.titles {
+	font-size: 12px;
 }
 
 img {
@@ -88,7 +107,6 @@ img {
 	width: 400px;
 	margin-left: 30px;
 	padding-left: 10px;
-	/*box-sizing: content-box;*/
 }
 
 /* Style barchart axes */

@@ -37,15 +37,15 @@ function draw_chord() {
 	var element = ["P. aeruginosa", "S. pneumoniae", "E. coli", "Penicillins", "Fluorquinolones", "Macrolides"];
 	
 	var matrix = [
-	[0, 0, 0, 0, 27, 0], /*P. aeruginosa*/
-    [0, 0, 0, 0, 0, 41], /*S. pneumoniae */
-	[0, 0, 0, 45, 33, 0], /*E. coli*/
-	[0, 0, 45, 0, 0, 0], /*Penicillins*/
-	[27, 0, 33, 0, 0, 0], /*Fluorquinolones*/
-	[0, 41, 0, 0, 0, 0], /*Macrolides*/
+		[0, 0, 0, 0, 27, 0], /*P. aeruginosa*/
+	    [0, 0, 0, 0, 0, 41], /*S. pneumoniae */
+		[0, 0, 0, 45, 33, 0], /*E. coli*/
+		[0, 0, 45, 0, 0, 0, 0], /*Penicillins*/
+		[27, 0, 33, 0, 0, 0], /*Fluorquinolones*/
+		[0, 41, 0, 0, 0, 0] /*Macrolides*/
 	];
 
-	var colors = ["#C4C4C4","#69B40F","#EC1D25","#C8125C","#008FC8","#10218B"],
+	var colors = ["#C4C4C4","#69B40F","#EC1D25", "#C8125C","#008FC8","#10218B"],
 		opacityValueBase = 0.8;
 
 	/*Initiate the color scale*/
@@ -53,8 +53,8 @@ function draw_chord() {
 	    .domain(d3.range(element.length))
 	    .range(colors);
 
-	var margin = {top: 20, right: 25, bottom: 20, left: 25},
-		width = 480 - margin.left - margin.right,
+	var margin = {top: 50, right: 50, bottom: 50, left: 50},
+		width = 700 - margin.left - margin.right,
 	    height = 500 - margin.top - margin.bottom,
 	    innerRadius = Math.min(width, height) * .39,
 	    outerRadius = innerRadius * 1.04;

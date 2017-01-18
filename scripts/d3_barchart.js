@@ -47,7 +47,7 @@ function draw_barchart(country, code) {
 	  	.append("g")
     	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // Define tool tip
+    // Define tooltip
 	var tip = d3.tip()
   		.attr('class', 'd3-tip')
   		.attr("transform", "rotate(-45)")
