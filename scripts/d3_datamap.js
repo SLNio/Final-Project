@@ -21,9 +21,21 @@
 
 function draw_map(family, family_index) {
 
+    var domain = [],
+        domain_penicillin = [6, 8, 10, 12, 15, Infinity],
+        domain_other = [0.5, 1, 2, 3, 4, Infinity];
 
+    if (family_index == 2) {
+        domain = domain_penicillin
+    }
+    else {
+        domain = domain_other
+    }
+
+    // Change title of datamap dynamically
     $('#maptitle').text(family + ' consumption in Europe (2013)');
 
+    // Load dataset with d3
     d3.json("europe_data.json", function (error, data) {
         if (error) throw error;
 
@@ -34,13 +46,11 @@ function draw_map(family, family_index) {
 
             country_code = d.Code,
             macrolides = +d.Macrolides,
-            tetracyclines = +d.Tetracyclines,
             cephalosporins = +d.Cephalosporins,
             penicillins = +d.Penicillins,
             quinolones = +d.Quinolones
 
-            dataset[d.Code] = [macrolides, tetracyclines, cephalosporins, 
-                penicillins, quinolones]
+            dataset[d.Code] = [macrolides, cephalosporins, penicillins, quinolones]
         })
 
         // Remove old map
@@ -54,8 +64,9 @@ function draw_map(family, family_index) {
 
             // Create a data object
             var country_code = d.id;
-            var group = get_group_for_cc(country_code);
+            var group = get_group_for_cc(country_code, domain);
             var total = dataset[country_code];
+
             if (group == 'group_default') {
                 new_data[country_code] = {fillKey: 'group_default', 
                         data: ['No data available']}
@@ -67,11 +78,8 @@ function draw_map(family, family_index) {
 
         });
 
-        function get_group_for_cc(country_code) {
+        function get_group_for_cc(country_code, domain) {
             var total = dataset[country_code];
-            var domain = [0.5, 1, 2, 3, 4, Infinity];
-            // var domain_penicillin = [6, 8, 10, 12, 15, Infinity];
-
             for (var i = 0; i < domain.length; i++){
                 if (total != undefined){
                     if (total[family_index] < domain[i]) {
@@ -92,6 +100,44 @@ function draw_map(family, family_index) {
             group_5: '#7f0000',
             group_default: 'lightgrey'
         };
+
+        var legend_text = ["0, "]
+
+        var width = 10;
+        var height = 10;
+
+        console.log(fill_colors["group_" + 0])
+
+        var svg = d3.select('#legend')
+
+        var legend = svg.append("g")
+          .attr("class", "legend")
+          .attr("x", 2)
+          .attr("y", 25)
+          .attr("height", 300)
+          .attr("width", 50);
+
+        legend.selectAll(".box")
+            .data( function(d, i) { return fill_colors["group_" + i]})
+          .enter().append("rect")
+            .attr("class", "box")
+            .attr("x", 10)
+          .attr("y", 25)
+          .attr("width", 20)
+          .attr("height", 20)
+          .style("fill", function(d, i) { return fill_colors["group_" + i] });
+
+        // legend.append("rect")
+        //   .attr("x", 10)
+        //   .attr("y", 25)
+        //   .attr("width", 20)
+        //   .attr("height", 20)
+        //   .style("fill", function(d, i) { return fill_colors["group_" + i] });
+
+        legend.append("text")
+          .attr("x", 40)
+          .attr("y", 25 * 1.6)
+          .text(function(d, i) { return domain_other[i] });
 
         var borderwidth = 6,
             map = new Datamap({
@@ -133,7 +179,7 @@ function draw_map(family, family_index) {
                             var click_color = {};
                             click_color[geography.id] = "#02818a";
                             if (selected_cc && selected_cc != geography.id) {
-                                group = get_group_for_cc(selected_cc);
+                                group = get_group_for_cc(selected_cc, domain);
                                 click_color[selected_cc] = fill_colors[group];
                             }
                             selected_cc = geography.id;
@@ -156,7 +202,7 @@ function draw_map(family, family_index) {
                             }
                             if (previous_hover_cc && previous_hover_cc != 
                                 geography.id  && selected_cc != previous_hover_cc) {
-                                group = get_group_for_cc(previous_hover_cc);
+                                group = get_group_for_cc(previous_hover_cc, domain);
                                 click_color[previous_hover_cc] = fill_colors[group];
                             }
                             previous_hover_cc = geography.id;
