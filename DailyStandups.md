@@ -62,3 +62,15 @@ Isa heeft een bar chart gemaakt, alleen de tekst wordt nog niet helemaal mooi we
 
 Vandaag hebben we met zijn 4en voor een uur aan de style guide gewerkt. We hebben de taken verdeeld wie wat ging schrijven. Morgen zullen we de laatste puntjes op de i zetten.
 
+
+## Week 2 Dag 4 - donderdag 19 januari
+
+
+![Selfie dag 6](https://github.com/SLNio/Final-Project/blob/master/doc/19jan.jpg)
+
+
+**Aanwezig:** Isa Leijdekkers, ShanLi Nio, Lotte Slim, Eline Jacobse. Jan Maarten de Vries
+
+Vandaag hebben we de laatste toevoegingen aan de style guide gedaan.
+
+
