@@ -36,7 +36,7 @@ function draw_map(family, family_index) {
     $('#maptitle').text(family + ' consumption in Europe (2013)');
 
     // Load dataset with d3
-    d3.json("europe_data.json", function (error, data) {
+    d3.json("data/europe_data.json", function (error, data) {
         if (error) throw error;
 
         var dataset = {}
@@ -101,43 +101,15 @@ function draw_map(family, family_index) {
             group_default: 'lightgrey'
         };
 
-        var legend_text = ["0, "]
-
-        var width = 10;
-        var height = 10;
-
-        console.log(fill_colors["group_" + 0])
-
-        var svg = d3.select('#legend')
-
-        var legend = svg.append("g")
-          .attr("class", "legend")
-          .attr("x", 2)
-          .attr("y", 25)
-          .attr("height", 300)
-          .attr("width", 50);
-
-        legend.selectAll(".box")
-            .data( function(d, i) { return fill_colors["group_" + i]})
-          .enter().append("rect")
-            .attr("class", "box")
-            .attr("x", 10)
-          .attr("y", 25)
-          .attr("width", 20)
-          .attr("height", 20)
-          .style("fill", function(d, i) { return fill_colors["group_" + i] });
-
-        // legend.append("rect")
-        //   .attr("x", 10)
-        //   .attr("y", 25)
-        //   .attr("width", 20)
-        //   .attr("height", 20)
-        //   .style("fill", function(d, i) { return fill_colors["group_" + i] });
-
-        legend.append("text")
-          .attr("x", 40)
-          .attr("y", 25 * 1.6)
-          .text(function(d, i) { return domain_other[i] });
+        var fill_colors_list = [
+            {name: 'group_0', color: '#fdd49e'},
+            {name: 'group_1', color: '#fc8d59'},
+            {name: 'group_2', color: '#ef6548'}, 
+            {name: 'group_3', color: '#d7301f'},
+            {name: 'group_4', color: '#b30000'},
+            {name: 'group_5', color: '#7f0000'},
+            {name: 'group_default', color: 'lightgrey'},
+        ];
 
         var borderwidth = 6,
             map = new Datamap({
@@ -208,6 +180,27 @@ function draw_map(family, family_index) {
                             previous_hover_cc = geography.id;
                             datamap.updateChoropleth(click_color);
                     })
+
+                    var legend = datamap.svg.append("g")
+                      .attr("class", "legend")
+
+                    var legend_labels = ["0 - 0.5", "0.5 <", "1.0 <", "2.0 <", "3.0 <", "4.0 <"]
+
+                    legend.selectAll(".box")
+                        .data(fill_colors_list)
+                      .enter().append("rect")
+                        .attr("class", "box")
+                        .attr("x", 10)
+                      .attr("y", function(d, i) { return 200 + 25 * i})
+                      .attr("width", 20)
+                      .attr("height", 20)
+                      .style("fill", function(d) { return d.color });
+
+                    legend.append("text")
+                      .attr("x", 40)
+                      .attr("y", function(d, i) { return 215 + 25 * i})
+                      .text(function(d, i) { return legend_labels[i] });
+
                 }
             });
     })

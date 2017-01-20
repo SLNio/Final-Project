@@ -38,9 +38,9 @@ function draw_chord() {
 
 	// Define design elements of the chord diagram
 	var resistancePerc = 531, 
-		emptyPerc = 0.9, // empty space between halves
+		emptyPerc = 0.1, // empty space between halves
 		emptyStroke = Math.round(resistancePerc*emptyPerc), //emptyPerc in units
-		pullOutSize = 50,
+		pullOutSize = 70,
 		labelDistance = 20,
 		opacityDefault = 0.70,
 		opacityHigh = 1,
@@ -53,11 +53,11 @@ function draw_chord() {
 	var element = bacteria.concat([""], families, [""]);	
 
 	// Load dataset with d3
-    d3.json("test2.json", function (error, matrix) {
+    d3.json("/Data/test2.json", function (error, matrix) {
         if (error) throw error;
 
         matrix[13][20] = emptyStroke;
-        matrix[19][13] = emptyStroke;
+        matrix[20][13] = emptyStroke;
 
         console.log(emptyStroke, matrix)
 
@@ -70,9 +70,11 @@ function draw_chord() {
 		function endAngle(d) { return d.endAngle + offset; }
 
 		// Initiate the inner chords design
-		var chord = d3.layout.chord()
+		var chord = 
+		// d3.layout.chord()
+		customChordLayout() 
 		    .padding(.04)
-		    .sortSubgroups(d3.descending) // sort the chords inside an arc from high to low
+		    // .sortSubgroups(d3.descending) // sort the chords inside an arc from high to low
 		    .sortChords(d3.descending) // Stack the chords from high to low
 			.matrix(matrix);
 
@@ -89,12 +91,6 @@ function draw_chord() {
 		    .outerRadius(outerRadius)
 		    .startAngle(startAngle)
 			.endAngle(endAngle);
-
-		// // Initiate the color scale
-		// var colors = ["#C4C4C4","#69B40F","#EC1D25", "#FFF", "#C8125C","#008FC8","#10218B", "#FFF"],
-		// 	fill = d3.scale.ordinal()
-		//     	.domain(d3.range(element.length))
-		//     	.range(colors);
 
 		// Initiate the outer arc labels
 		var g = svg.selectAll("g.group")
@@ -119,12 +115,9 @@ function draw_chord() {
 		// Draw the outer arcs
 		g.append("path")
 			  .attr("class", "arc")
-			  .style("stroke", function(d,i) { return (element[i] === "" ? "none" : "#00A1DE"); })
-			  // .style("stroke", function(d) { return fill(d.index); })
-			  .style("fill", function(d,i) { return (element[i] === "" ? "#bd0026" : "#00A1DE"); })
-			  // .style("fill", function(d) { return fill(d.index); })
+			  .style("stroke", function(d,i) { return (element[i] === "" ? "none" : "#0570b0"); })
+			  .style("fill", function(d,i) { return (element[i] === "" ? "none" : "#0570b0"); })
 			  .style("pointer-events", function(d,i) { 
-
 			  	return (element[i] === "" ? "none" : "auto"); 
 			  })
 			  .attr("d", arc)
@@ -148,8 +141,8 @@ function draw_chord() {
 			.data(chord.chords)
 			.enter().append("path")
 			.attr("class", "chord")
-			.style("fill", "#C4C4C4")
-			// .style("fill", function(d) { return fill(d.source.index); })
+			// .style("fill", "#C4C4C4")
+			.style("fill", function(d,i) { return (element[d.source.index] == "" ? "none" : "#a6bddb"); })
 			.style("opacity", opacityDefault)
 			.style("pointer-events", function(d,i) { return (element[d.source.index] == "" ? "none" : "auto"); }) //Remove pointer events from dummy strokes
 			.attr("d", path)
@@ -164,6 +157,7 @@ function draw_chord() {
 		function fade(opacity) {
 			return function(d, i) {
 		    	svg.selectAll("path.chord")
+		    		// check if this is not the one that is hovered over: apply opacity
 			        .filter(function(d) { return d.source.index != i && d.target.index != i; })
 					.transition()
 			        .style("opacity", opacity);

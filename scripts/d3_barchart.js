@@ -59,7 +59,7 @@ function draw_barchart(country, code) {
   	svg.call(tip);
 
     // Load dataset with d3
-	d3.json("europe_data.json", function (error, data) {
+	d3.json("data/europe_data.json", function (error, data) {
 		if (error) throw error;
 
 		var dataset = {}

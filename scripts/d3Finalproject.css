@@ -95,25 +95,6 @@ img {
 	font-size: 10px;
 }
 
-#legend {
-	top: 761px;
-	position: absolute;
-}
-
-.legend {
-	background-color: black;
-}
-
-/*.datamaps-legend {
-	width: 731px;
-    margin: 0 auto;
-    background-color: white;
-    font-size: 10px !important;
-    margin-top: -66px !important;
-    text-align: center;
-    position: relative !important;
-}*/
-
 #barwrapper {
 	width: 458px;
 	border-style: solid;
