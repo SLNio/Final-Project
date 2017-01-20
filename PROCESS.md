@@ -71,3 +71,19 @@ Continue implementation of the stretched chord diagram. The code for the normal 
 
 ![Stretched Chord diagram](https://github.com/SLNio/Final-Project/blob/master/doc/stretched_chord_interactive_bacteria.jpg)
 
+#day 9
+Couple the stretched chord diagram to the correct data. The antibiotic resistance dataset was changed to the proper matrix format, so it could be used for the stretched chord diagram. Thereafter small changes were made to the code that was written at day 8 to make it suitable for the antibiotic resistance data. 
+
+![Stretched Chord diagram](https://github.com/SLNio/Final-Project/blob/master/doc/chord_antibiotic.jpg)
+
+![Stretched Chord diagram](https://github.com/SLNio/Final-Project/blob/master/doc/chord_antibiotic_interactive.jpg)
+
+Additionally the chord diagram was linked to the datamap, by making the antibiotic families for which there was consumption data selectable. When clicked the consumption data of this antibiotic family will be shown in the datamap. The titel will also change dynamically. 
+
+![Stretched Chord diagram](https://github.com/SLNio/Final-Project/blob/master/doc/chord_map.jpg)
+
+Antibiotic families for which no data was availabe or bacteria were made non selectable for now. I am planning to make them selectable and to show additional windows with information about the clicked item. Furthermore it is not very clear at the moment that you can click several antibiotic families. Therefore I am considering to create an introduction animation which explains all the options of the stretched chord diagram, so it will be clear to the user what interactive options are there or to change the appearance of the selectable options to make it more clear that they can be clicked.
+
+
+
+
