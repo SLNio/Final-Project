@@ -19,7 +19,7 @@
 
 ***************************************************************************/
 
-function draw_map(family, family_index) {
+function drawMap(family, family_index) {
 
     var domain = [],
         domain_penicillin = [6, 8, 10, 12, 15, Infinity],
@@ -64,7 +64,8 @@ function draw_map(family, family_index) {
 
             // Create a data object
             var country_code = d.id;
-            var group = get_group_for_cc(country_code, domain);
+
+            var group = get_group_for_cc(country_code, domain, dataset, family_index);
             var total = dataset[country_code];
 
             if (group == 'group_default') {
@@ -77,19 +78,6 @@ function draw_map(family, family_index) {
             }
 
         });
-
-        function get_group_for_cc(country_code, domain) {
-            var total = dataset[country_code];
-            for (var i = 0; i < domain.length; i++){
-                if (total != undefined){
-                    if (total[family_index] < domain[i]) {
-                        return 'group_' + i;
-                    }
-                }
-            }
-            return 'group_default';
-
-        }
 
         var fill_colors = {
             group_0: '#fdd49e',
@@ -151,7 +139,7 @@ function draw_map(family, family_index) {
                             var click_color = {};
                             click_color[geography.id] = "#02818a";
                             if (selected_cc && selected_cc != geography.id) {
-                                group = get_group_for_cc(selected_cc, domain);
+                                group = get_group_for_cc(selected_cc, domain, dataset, family_index);
                                 click_color[selected_cc] = fill_colors[group];
                             }
                             selected_cc = geography.id;
@@ -159,7 +147,7 @@ function draw_map(family, family_index) {
                             datamap.updateChoropleth(click_color);
 
                             if (dataset[geography.id] != undefined) {
-                                draw_barchart(geography.properties.name, geography.id)
+                               drawBarchart(geography.properties.name, geography.id, family)
                             }
                             else {
                                 apologize()
@@ -174,7 +162,7 @@ function draw_map(family, family_index) {
                             }
                             if (previous_hover_cc && previous_hover_cc != 
                                 geography.id  && selected_cc != previous_hover_cc) {
-                                group = get_group_for_cc(previous_hover_cc, domain);
+                                group = get_group_for_cc(previous_hover_cc, domain, dataset, family_index);
                                 click_color[previous_hover_cc] = fill_colors[group];
                             }
                             previous_hover_cc = geography.id;
@@ -184,23 +172,32 @@ function draw_map(family, family_index) {
                     var legend = datamap.svg.append("g")
                       .attr("class", "legend")
 
-                    var legend_labels = ["0 - 0.5", "0.5 <", "1.0 <", "2.0 <", "3.0 <", "4.0 <"]
+                    var legend_labels = ["0 - 0.5", "0.51 - 1.0", "1.1 - 2.0", "2.1 - 3.0", "3.1 - 4.0", "4.1 <", "No data available"]
+
+                    var legendtitle = legend.append("text")
+                        .attr("id", "legendtitle")
+                        .attr("dx", "-39em")
+                        .attr("dy", "1.9em")
+                        .attr("transform", "rotate(-90)")
+                        .text("Consumption (Defined Daily Dose)")
 
                     legend.selectAll(".box")
-                        .data(fill_colors_list)
+                      .data(fill_colors_list)
                       .enter().append("rect")
-                        .attr("class", "box")
-                        .attr("x", 10)
-                      .attr("y", function(d, i) { return 200 + 25 * i})
+                      .attr("class", "box")
+                      .attr("x", 30)
+                      .attr("y", function(d, i) { return 225 + 25 * i})
                       .attr("width", 20)
                       .attr("height", 20)
                       .style("fill", function(d) { return d.color });
 
-                    legend.append("text")
-                      .attr("x", 40)
-                      .attr("y", function(d, i) { return 215 + 25 * i})
-                      .text(function(d, i) { return legend_labels[i] });
-
+                    legend.selectAll(".label")
+                        .data(legend_labels)
+                      .enter().append("text")
+                        .attr("class", "label")
+                        .attr("x", 60)
+                      .attr("y", function(d, i) { return 240 + 25 * i})
+                        .text(function(d, i) { return d });
                 }
             });
     })

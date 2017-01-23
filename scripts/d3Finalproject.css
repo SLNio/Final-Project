@@ -58,6 +58,17 @@ img {
 	right: 150px;
 }
 
+.btn-group {
+	position: absolute;
+	bottom: 18px;
+	right: 45px;
+}
+
+.btn-default {
+	border-color: #02818a;
+	border-radius: 3px;
+}
+
 #radio-btn {
 	position: absolute;
 	bottom: 118px;
@@ -87,6 +98,10 @@ img {
 	height:400px;
 	width: 750px;
 	position: relative;
+}
+
+#legendtitle {
+	font-size: 10px;
 }
 
 .hoverinfo {

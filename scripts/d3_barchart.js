@@ -16,7 +16,7 @@
 
 ***************************************************************************/
 
-function draw_barchart(country, code) {
+function drawBarchart(country, code, bla) {
 
 	// Remove old barchart
     document.getElementById('barchart').innerHTML = "";
@@ -68,19 +68,19 @@ function draw_barchart(country, code) {
 		data.forEach(function(d){
 
 			country_code = d.Code,
-			macrolides = +d.Macrolides,
-			tetracyclines = +d.Tetracyclines,
-			cephalosporins = +d.Cephalosporins,
-			penicillins = +d.Penicillins,
-			quinolones = +d.Quinolones
+			Macrolides = +d.Macrolides,
+			Tetracyclines = +d.Tetracyclines,
+			Cephalosporins = +d.Cephalosporins,
+			Penicillins = +d.Penicillins,
+			Quinolones = +d.Quinolones
 
 			// store values per country
 			dataset[country_code] = [
-				{'family': 'Macrolides', 'value': macrolides},
-				{'family': 'Tetracyclines', 'value': tetracyclines},
-				{'family': 'Cephalosporins', 'value': cephalosporins},
-				{'family': 'Penicillins', 'value': penicillins},
-				{'family': 'Quinolones', 'value': quinolones}
+				{'family': 'Macrolides', 'value': Macrolides},
+				{'family': 'Tetracyclines', 'value': Tetracyclines},
+				{'family': 'Cephalosporins', 'value': Cephalosporins},
+				{'family': 'Penicillins', 'value': Penicillins},
+				{'family': 'Quinolones', 'value': Quinolones}
 			]
 		})
 
@@ -123,25 +123,9 @@ function draw_barchart(country, code) {
 		    .attr("y", function(d) { return y(d.value); })
 		    .attr("height", function(d) { return height - y(d.value); })
 		    .attr("width", 55)
-		    .style("fill", '#3690c0')
+		    .style("fill", function(d, i) { return d.family == bla ? '#02818a' : '#76bac8'; })
+		    // .style("fill", '#87B7F5)
 		    .on('mouseover', tip.show)
       		.on('mouseout', tip.hide);
 	})
-}
-
-
-function apologize() {
-
-	// Remove old barchart and barchart title
-    document.getElementById('barchart').innerHTML = "";
-    document.getElementById('bartitle').innerHTML = "";
-
-	// Show apology text
-	var svg = d3.select('#barchart')
-	svg.append("text")	
-		.attr("class", "apology")
-		.attr("dx", "0.8em")
-	    .attr("dy", "8em")
-		.style("fill", '#969696')
-		.text("Sorry no data available for this country")
 }
