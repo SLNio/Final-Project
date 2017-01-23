@@ -84,6 +84,11 @@ Additionally the chord diagram was linked to the datamap, by making the antibiot
 
 Antibiotic families for which no data was availabe or bacteria were made non selectable for now. I am planning to make them selectable and to show additional windows with information about the clicked item. Furthermore it is not very clear at the moment that you can click several antibiotic families. Therefore I am considering to create an introduction animation which explains all the options of the stretched chord diagram, so it will be clear to the user what interactive options are there or to change the appearance of the selectable options to make it more clear that they can be clicked.
 
+#day 10
+Activate the buttons which make it able to change the information of the left chord arc from antibiotic families to individual antibiotics and the reverse.
 
+![Stretched Chord diagram](https://github.com/SLNio/Final-Project/blob/master/doc/individual_antibiotics.jpg)
 
+Additionally add the options of the selection bar with javascript.
 
+![Selection bar](https://github.com/SLNio/Final-Project/blob/master/doc/selectionbar.jpg)
