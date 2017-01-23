@@ -74,3 +74,14 @@ Vandaag hebben we met zijn 4en voor een uur aan de style guide gewerkt. We hebbe
 Vandaag hebben we de laatste toevoegingen aan de style guide gedaan.
 
 
+## Week 3 Dag 1 - maandag 23 januari 
+
+
+![Selfie dag 7](https://github.com/SLNio/Final-Project/blob/master/doc/23jan.jpg)
+
+**Aanwezig:** ShanLi Nio, Lotte Slim, Jan Maarten de Vries, Eline Jacobse 
+**Afwezig** Isa Leijdekkers
+
+We hebben onze plannen voor deze week besproken. Lotte wil vandaag de interactiviteit van haar wereldkaart met de barcharts en de tabel afmaken. Ze heeft ook nog meer data van verschillende jaren gevonden, dus als ze de rest van haar visualisatie helemaal af heeft wil ze misschien nog een time slider maken. Jan Maarten gaat vandaag het laatste van zijn data verzamelen en werkt deze week aan zijn pie chart over verschillende albums. ShanLi wil vandaag haar zoekfunctie voor bacteriën maken en verder de rest van haar visualisaties afmaken. Eline gaat vandaag haar line graph helemaal afmaken, en wil definitief besluiten welke visualisaties in ieder geval gemaakt moeten worden en welke optioneel zijn. 
+
+
