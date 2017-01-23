@@ -53,7 +53,7 @@ function draw_chord() {
 	var element = bacteria.concat([""], families, [""]);	
 
 	// Load dataset with d3
-    d3.json("/Data/test2.json", function (error, matrix) {
+    d3.json("data/test2.json", function (error, matrix) {
         if (error) throw error;
 
         matrix[13][20] = emptyStroke;
