@@ -85,3 +85,13 @@ Vandaag hebben we de laatste toevoegingen aan de style guide gedaan.
 We hebben onze plannen voor deze week besproken. Lotte wil vandaag de interactiviteit van haar wereldkaart met de barcharts en de tabel afmaken. Ze heeft ook nog meer data van verschillende jaren gevonden, dus als ze de rest van haar visualisatie helemaal af heeft wil ze misschien nog een time slider maken. Jan Maarten gaat vandaag het laatste van zijn data verzamelen en werkt deze week aan zijn pie chart over verschillende albums. ShanLi wil vandaag haar zoekfunctie voor bacteriën maken en verder de rest van haar visualisaties afmaken. Eline gaat vandaag haar line graph helemaal afmaken, en wil definitief besluiten welke visualisaties in ieder geval gemaakt moeten worden en welke optioneel zijn. 
 
 
+## Week 3 Dag 2 - maandag 24 januari 
+
+
+![Selfie dag 7](https://github.com/SLNio/Final-Project/blob/master/doc/24jan.jpg)
+
+**Aanwezig:** ShanLi Nio, Lotte Slim, Jan Maarten de Vries, Eline Jacobse, Isa Leijdekkers
+
+Vandaag hebben we besproken hoe ver we zijn gekomen met de plannen die we gisteren hebben besproken. We hebben ideeën uitgewisseld over hoe je sommige figuren het beste aan elkaar kan linken door middel van interactiviteit en hoe je ervoor kan zorgen dat de visuele link tussen al de figuren duidelijk is, bijvoorbeeld dmv al de figuren zo in te delen dat ze naast elkaar kunnen staan, een bar met navigatie-knoppen of een automatic scrolldown. Verder heeft Isa haar derde visualisatie (bubble chart) laten zien, maar weet ze nog niet precies hoe ze alles wil indelen, zodat haar pagina meer een geheel wordt. De rest van de groep werkt vandaag verder aan de dingen waar ze gisteren aan begonnen zijn. 
+
+
