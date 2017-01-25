@@ -95,3 +95,6 @@ We hebben onze plannen voor deze week besproken. Lotte wil vandaag de interactiv
 Vandaag hebben we besproken hoe ver we zijn gekomen met de plannen die we gisteren hebben besproken. We hebben ideeën uitgewisseld over hoe je sommige figuren het beste aan elkaar kan linken door middel van interactiviteit en hoe je ervoor kan zorgen dat de visuele link tussen al de figuren duidelijk is, bijvoorbeeld dmv al de figuren zo in te delen dat ze naast elkaar kunnen staan, een bar met navigatie-knoppen of een automatic scrolldown. Verder heeft Isa haar derde visualisatie (bubble chart) laten zien, maar weet ze nog niet precies hoe ze alles wil indelen, zodat haar pagina meer een geheel wordt. De rest van de groep werkt vandaag verder aan de dingen waar ze gisteren aan begonnen zijn. 
 
 
+## Week 3 Dag 3 - maandag 25 januari 
+
+Niet aanwezig, wegens begrafenis

@@ -13,47 +13,48 @@
 function changeSelectionbar(bacteria, antibiotics) {
 
     var selections = [];
-    var childrenBac = [];
-    var childrenAnt = [];
 
-    // Remove old selection bar options
+    // Remove old antibiotics selection from bar
     document.getElementById('select').innerHTML = "";
 
-    // Create objects for all options
-    for (var i = 0; i < bacteria.length ; i++) {
-            
-        var options = {};
-        options['id'] = bacteria[i]
-        options['text'] = bacteria[i]
-        childrenBac.push(options)
-    }
-
-    for (var i = 0; i < antibiotics.length ; i++) {
-            
-        var options = {};
-        options['id'] = antibiotics[i]
-        options['text'] = antibiotics[i]
-        childrenAnt.push(options)
-    }
-
-    // Create objects for outgroups
-    selections.push({
-        text : "Bacteria",
-        children: childrenBac
-    });
-
-    selections.push({
-        text: "Antibiotics",
-        children: childrenAnt
-    });
+    make_children(selections, "Bacteria", bacteria)
+    make_children(selections, "Antibiotics", antibiotics)
 
     // Add selection bar with search field
     $(document).ready(function() {
         $(".js-example-basic-single").select2({
         placeholder: 'Select an option',
+        allowClear: true,
         data: selections
         });
     });
+}
+
+function make_children(selections, name, data) {
+    var children = [];
+
+    // Create objects for all options
+    for (var i = 0; i < data.length ; i++) {
+            
+        var options = {};
+        options['id'] = data[i]
+        options['text'] = data[i]
+        children.push(options)
+    }
+
+    // Create objects for outgroups
+    selections.push({
+        text : name,
+        children: children
+    });
+}
+
+function getIndex(element, option) {
+    for (var i = 0; i < element.length; i++) {
+        if (element[i] == option){
+            return i;
+        }
+    }
 }
 
 // Assign countries to fillkey groups
@@ -67,19 +68,8 @@ function get_group_for_cc(country_code, domain, dataset, family_index) {
         }
     }
     return 'group_default';
-
 }
 
-// Manage visibility of chords
-function fade(opacity, svg) {
-    return function(d, i) {
-        svg.selectAll("path.chord")
-            // check if this is not the one that is hovered over: apply opacity
-            .filter(function(d) { return d.source.index != i && d.target.index != i; })
-            .transition()
-            .style("opacity", opacity);
-    }
-} 
 
 // Apologize when no data is available 
 function apologize() {
@@ -98,3 +88,20 @@ function apologize() {
         .text("Sorry no data available for this country")
 }  
 
+// Manage visibility of chords
+function fade(svg, reset, opacityDefault, selected, opacityLow) {
+    
+    // Reset all selections
+    svg.selectAll("path.chord")
+        // check if this is not the one that is hovered over: apply opacity
+        .filter(function(d) { return d.source.index !== reset && d.target.index !== reset; })
+        .transition()
+        .style("opacity", opacityDefault);    
+
+    // Fade all chords that are not selected
+    svg.selectAll("path.chord")
+        // check if this is not the one that is hovered over: apply opacity
+        .filter(function(d) { return d.source.index !== selected && d.target.index !== selected; })
+        .transition()
+        .style("opacity", opacityLow);   
+} 

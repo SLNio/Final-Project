@@ -16,7 +16,7 @@
 	http://www.visualcinnamon.com/2015/08/stretched-chord.html
 
 ***************************************************************************/
-function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibiotics) {
+function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibiotics, option) {
 
 	// Add chart title
 	$('#chordtitle').text('Antibiotics and resistant bacteria');
@@ -42,8 +42,7 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 	var emptyStroke = Math.round(resistancePerc*emptyPerc), //emptyPerc in units
 		pullOutSize = 70,
 		labelDistance = 20,
-		opacityDefault = 0.70,
-		opacityHigh = 1,
+		opacityDefault = 0.5,
 		opacityLow = 0.02;
 
 	// Define elements of the right arc and the space between the arcs
@@ -91,7 +90,7 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 		// Initiate the outer arc labels
 		var g = svg.selectAll("g.group")
 			.data(chord.groups)
-			.enter().append("svg:g")
+		  .enter().append("svg:g")
 			.attr("class", function(d) {return "group " + element[d.index];})
 			.attr("d", arc)
 			.attr("transform", function(d, i) { // Pull the two halves apart
@@ -99,8 +98,8 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 					? -1 : 1);
 				return "translate(" + d.pullOutSize + ',' + 0 + ")";
 			})
-			.on("mouseover", fade(opacityLow, svg))
-			.on("mouseout", fade(opacityDefault, svg))
+			.on("mouseover", function(d, i) { fade(svg, undefined, opacityDefault, i, opacityLow)})
+			.on("mouseout", function(d, i) { fade(svg, undefined, opacityDefault, i, opacityDefault) })
 			.on("click", function(d) { 
 				if (antibiotics.length < 7 && d.index > bacteria.length && 
 					d.index < (element.length - 3)) {
@@ -114,8 +113,8 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 		// Draw the outer arcs
 		g.append("path")
 			  .attr("class", "arc")
-			  .style("stroke", function(d,i) { return (element[i] === "" ? "none" : "#0570b0"); })
-			  .style("fill", function(d,i) { return (element[i] === "" ? "none" : "#0570b0"); })
+			  .style("stroke", function(d,i) { return (element[i] === "" ? "none" : "#19BAA2"); })
+			  .style("fill", function(d,i) { return (element[i] === "" ? "none" : "#19BAA2"); })
 			  .style("pointer-events", function(d,i) { 
 			  	return (element[i] === "" ? "none" : "auto"); 
 			  })
@@ -125,7 +124,15 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 		g.append("text")
 		    .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2 + offset})
 		    .attr("dy", ".35em")
-		    .attr("class", "titles")
+		    .attr("class", function(d) {
+		    	if (antibiotics.length < 7 && d.index > bacteria.length && 
+					d.index < (element.length - 3)) {
+		    		return "clickTitles"
+				}
+				else {
+					return "titles"
+				}
+			})
 		    .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
 		    .attr("transform", function(d, i) {
 		    	var c = arc.centroid(d);
@@ -133,14 +140,14 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 				+ "translate(" + (innerRadius + labelDistance) + ")"
 				+ (d.angle > Math.PI ? "rotate(180)" : "");
 		    })
-		    .text(function(d,i) { return element[i]; }); 
+		    .text(function(d,i) { return element[i]; })
 
 		// Draw the inner chords
 		var chords = svg.selectAll("path.chord")
 			.data(chord.chords)
-			.enter().append("path")
+		  .enter().append("path")
 			.attr("class", "chord")
-			.style("fill", function(d,i) { return (element[d.source.index] == "" ? "none" : "#a6bddb"); })
+			.style("fill", function(d,i) { return (element[d.source.index] == "" ? "none" : "#7ED0C4"); })
 			.style("opacity", opacityDefault)
 			.style("pointer-events", function(d,i) { return (element[d.source.index] == "" ? "none" : "auto"); }) //Remove pointer events from dummy strokes
 			.attr("d", path)
@@ -150,5 +157,16 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 			.text(function(d) {
 				return Math.round(d.source.value) + "% resistance to " + element[d.target.index]; 
 			});	
+
+		$("#select")
+		    .on("change", function(event) {
+
+		     	// Get value of selected option
+		        var option = $(this).val();
+		        var index = getIndex(element, option)
+
+		        fade(svg, undefined, opacityDefault, index, opacityLow)
+		     
+		});
 	})
 }

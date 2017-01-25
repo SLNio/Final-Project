@@ -10,11 +10,11 @@
 ***************************************************************************/
 
 #chordwrapper {
-	height:545px;
-	width: 1210px;
-	margin: 0 auto;
-	border-style: solid;
 	border-color: #02818a;
+	border-style: solid;
+	height:545px;
+	margin: 0 auto;	
+	width: 1210px;
 }
 
 #chordtitle {
@@ -28,16 +28,16 @@
 
 #chord_diagram {
 	height: 466px;	
-	width: 700px;
-	margin-top: 5px;
 	margin-left: 50px;
+	margin-top: 5px;
 	position: relative;
+	width: 700px;
 }
 
 .diagram {
 	height: 650px;
-	width: 600px;
 	padding: 500px;
+	width: 600px;
 }
 
 .tickLabels {
@@ -48,19 +48,20 @@
 	font-size: 12px;
 }
 
-img {
-	margin-left: 20px;
+.clickTitles {
+	font-size: 12px;
+	font-weight: bold;
 }
 
 #navbar {
 	position: absolute;
-	top: 80px;
 	right: 150px;
+	top: 80px;
 }
 
 .btn-group {
-	position: absolute;
 	bottom: 18px;
+	position: absolute;
 	right: 45px;
 }
 
@@ -70,23 +71,27 @@ img {
 }
 
 #radio-btn {
-	position: absolute;
 	bottom: 118px;
+	position: absolute;
 	right: 154px;
 }
+
+/*.infowindow {
+	position: absolute;
+}*/
 
 #wrapper {
 	height:500px;
 	margin: 0 auto;
-	width: 1210px;
 	margin-top: 5px;
+	width: 1210px;
 }
 
 #mapwrapper {
-	width: 750px;
-	border-style: solid;
 	border-color: #02818a;
+	border-style: solid;
 	float: left;
+	width: 750px;
 }
 
 #maptitle {
@@ -96,8 +101,8 @@ img {
 
 #datamap {
 	height:400px;
-	width: 750px;
 	position: relative;
+	width: 750px;
 }
 
 #legendtitle {
@@ -105,23 +110,23 @@ img {
 }
 
 .hoverinfo {
-	text-align: center;
 	font-family: "Trebuchet MS";
 	font-size: 10px;
+	text-align: center;
 }
 
 #barwrapper {
-	width: 458px;
-	border-style: solid;
 	border-color: #02818a;
+	border-style: solid;
 	float: right;
+	width: 458px;
 }
 
 #barchart {
 	height: 395px;
-	width: 400px;
 	margin-left: 30px;
 	padding-left: 10px;
+	width: 400px;
 }
 
 /* Style barchart axes */
@@ -129,8 +134,8 @@ img {
 .axis line 
 {
 	fill: none;
+	shape-rendering: crispEdges;
   	stroke: #000;
-  	shape-rendering: crispEdges;
 }
 
 .apology {
@@ -143,34 +148,34 @@ img {
 
 /* Characteristics of tooltip */
 .d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 2px;
+  	color: #fff;
+  	font-weight: bold;
+	line-height: 1;
+  	padding: 12px;
 }
 
 /* Small triangle extender for the tooltip */
 .d3-tip:after 
 {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
+  	box-sizing: border-box;
+  	color: rgba(0, 0, 0, 0.8);
+  	content: "\25BC";
+  	display: inline;
+  	font-size: 10px;
+  	line-height: 1;
+  	position: absolute;
+  	text-align: center;
+  	width: 100%;
 }
 
 /* Reposition tooltips */
 .d3-tip.n:after 
 {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
+	left: 0;
+  	margin: -1px 0 0 0;
+  	top: 100%;
 }
 
 #bartitle {

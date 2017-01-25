@@ -169,10 +169,17 @@ function drawMap(family, family_index) {
                             datamap.updateChoropleth(click_color);
                     })
 
+                    var x = 30,
+                        yRect = 225,
+                        yLabel = 240,
+                        nextElement = 25,
+                        legendLabels = ["0 - 0.5", "0.51 - 1.0", "1.1 - 2.0", 
+                        "2.1 - 3.0", "3.1 - 4.0", "4.1 <", "No data available"],
+                        legendLabelsPen = ["0 - 6", "6.1 - 8.0", "8.1 - 10.0", 
+                        "10.1 - 12.0", "12.1 - 15.0", "15.1 <", "No data available"]
+
                     var legend = datamap.svg.append("g")
                       .attr("class", "legend")
-
-                    var legend_labels = ["0 - 0.5", "0.51 - 1.0", "1.1 - 2.0", "2.1 - 3.0", "3.1 - 4.0", "4.1 <", "No data available"]
 
                     var legendtitle = legend.append("text")
                         .attr("id", "legendtitle")
@@ -182,21 +189,23 @@ function drawMap(family, family_index) {
                         .text("Consumption (Defined Daily Dose)")
 
                     legend.selectAll(".box")
-                      .data(fill_colors_list)
+                        .data(fill_colors_list)
                       .enter().append("rect")
-                      .attr("class", "box")
-                      .attr("x", 30)
-                      .attr("y", function(d, i) { return 225 + 25 * i})
-                      .attr("width", 20)
-                      .attr("height", 20)
-                      .style("fill", function(d) { return d.color });
+                        .attr("class", "box")
+                        .attr("x", x)
+                        .attr("y", function(d, i) { return yRect + nextElement * i})
+                        .attr("width", 20)
+                        .attr("height", 20)
+                        .style("fill", function(d) { return d.color });
 
+                    // Add legend labels                    
                     legend.selectAll(".label")
-                        .data(legend_labels)
+                        .data(function(d,i) { return (family_index == 2 ? 
+                            legendLabelsPen : legendLabels); })
                       .enter().append("text")
                         .attr("class", "label")
-                        .attr("x", 60)
-                      .attr("y", function(d, i) { return 240 + 25 * i})
+                        .attr("x", 2 * x)
+                        .attr("y", function(d, i) { return yLabel + nextElement * i})
                         .text(function(d, i) { return d });
                 }
             });

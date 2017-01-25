@@ -16,7 +16,7 @@
 
 ***************************************************************************/
 
-function drawBarchart(country, code, bla) {
+function drawBarchart(country, code, family) {
 
 	// Remove old barchart
     document.getElementById('barchart').innerHTML = "";
@@ -44,7 +44,7 @@ function drawBarchart(country, code, bla) {
 	var svg = d3.select("#barchart")
 	    .attr("width", width)
 	    .attr("height", height)
-	  	.append("g")
+	  .append("g")
     	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // Define tooltip
@@ -118,14 +118,28 @@ function drawBarchart(country, code, bla) {
 		svg.selectAll(".bar")
 		    .data(countrydata)
 		  .enter().append("rect")
+		  	// .transition() 
+		  	// .duration(1000) 
 		    .attr("class", "bar")
 		    .attr("x", function(d) { return x(d.family); })
 		    .attr("y", function(d) { return y(d.value); })
 		    .attr("height", function(d) { return height - y(d.value); })
 		    .attr("width", 55)
-		    .style("fill", function(d, i) { return d.family == bla ? '#02818a' : '#76bac8'; })
-		    // .style("fill", '#87B7F5)
+		    .style("fill", function(d, i) { return d.family == family ? '#02818a' : '#7ED0C4'; })
 		    .on('mouseover', tip.show)
       		.on('mouseout', tip.hide);
-	})
+
+  //     	var transition = d3.transition().duration(750)
+  //     	var delay = function(d, i) { return i * 200; };
+
+		// transition.selectAll(".bar")
+		//     .delay(delay)
+	 //        .attr("x", function(d) { return x(d.family); });
+
+	 //    transition.select(".x.axis")
+	 //        .call(xAxis)
+	 //      .selectAll("g")
+	 //        .delay(delay);
+
+    })
 }

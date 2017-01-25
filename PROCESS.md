@@ -89,6 +89,18 @@ Activate the buttons which make it able to change the information of the left ch
 
 ![Stretched Chord diagram](https://github.com/SLNio/Final-Project/blob/master/doc/individual_antibiotics.jpg)
 
-Additionally add the options of the selection bar with javascript.
+#day 11
+Add the options of the selection bar with javascript and implement a function, which can automatically exchange the antibiotic family options for individual antibiotic options, when the user will use the switch button. In this way the list of selections will not be too long, which makes it more users friendly.
 
-![Selection bar](https://github.com/SLNio/Final-Project/blob/master/doc/selectionbar.jpg)
+![Selection bar data](https://github.com/SLNio/Final-Project/blob/master/doc/selectionbar.jpg)
+
+#day 12 & day 13
+Activate the selection bar by linking it to the chord diagram. When the user makes a selection, the chords which comprise the selected option will be visible, while all other chords will be faded. 
+
+![Selected option](https://github.com/SLNio/Final-Project/blob/master/doc/selected.jpg)
+
+Furthermore several bugs in the chord diagram were fixed, such as the disappearance of chords when hovered over or selected more than once. This had to do with the lack of a function which could reset all selected/hovered options. With the implementation of this function, all chords will be visible again before a new selection through hovering or the selection bar is made. An additional feature was given to the selection bar, which is the option to clear the users' selection.
+
+![Clear option](https://github.com/SLNio/Final-Project/blob/master/doc/Clear.PNG)
+
+The coming two days will be worked on the ability to hover not only over the chord diagram outer arcs, but also over the inner chords. In this way particular chords can be selected by the user, which makes it easier to read the tooltips with the exact resistance percentages. Additionally, tooltips with info over the different bacteria and antibiotics will be added, bugs will be fixed and if their is still time this week several changes to the layout will be made.

@@ -68,50 +68,23 @@ window.onload = function() {
 	        	settings = individualSettings;
 	        }
 	        changeSelectionbar(bacteria, settings.antibiotics)
-	        drawChord(bacteria, settings.data, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics)
+	        drawChord(bacteria, settings.data, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics, option)
 		});
 
 	var settings = familySettings;
+	var option = ""
 
 	// Initiate selection bar
 	changeSelectionbar(bacteria, settings.antibiotics)
 
 	// Initiate chord diagram
-	drawChord(bacteria, settings.data, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics)
+	drawChord(bacteria, settings.data, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics, option)
 
 	// Initiate datamap
 	drawMap('Macrolides', 0);
 
 	// Initiate barchart
 	drawBarchart('Austria', 'AUT');
-
-
-	// function select() {
-	//     var select = $("#select");
-	//     	select.select2();
-
-	//     $("#select").click(function() {
-	//         // How to select a value
-	//         var current = select.select2("val");
-	//         if (current == 'S. aureus') {
-	//         	console.log("hallo")
-	//         }
-	//     })
-	// };
-
-	d3.selectAll("#select")
-	    .on("click", function() {
-
-	    	console.log("test")
-
-	    	// Get value of selected antibiotics option
-	        var option = this.getAttribute("value");
-
-	        if(option == "Shigella"){
-	        	console.log("selected")
-	        }
-	        // drawChord(bacteria, settings.data, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics)
-		});
 }
 
 	
