@@ -57,6 +57,13 @@ function getIndex(element, option) {
     }
 }
 
+// Smooth automatic scroll function
+function automatic_scroll(element){
+    $('html, body').animate({
+        scrollTop: $(element).offset().top
+    }, 1000);
+}
+
 // Assign countries to fillkey groups
 function get_group_for_cc(country_code, domain, dataset, family_index) {
     var total = dataset[country_code];
@@ -88,7 +95,7 @@ function apologize() {
         .text("Sorry no data available for this country")
 }  
 
-// Manage visibility of chords
+// Manage visibility of chords when hovered over arcs/slec
 function fade(svg, reset, opacityDefault, selected, opacityLow) {
     
     // Reset all selections
@@ -101,7 +108,26 @@ function fade(svg, reset, opacityDefault, selected, opacityLow) {
     // Fade all chords that are not selected
     svg.selectAll("path.chord")
         // check if this is not the one that is hovered over: apply opacity
-        .filter(function(d) { return d.source.index !== selected && d.target.index !== selected; })
+        .filter(function(d) { return d.source.index !== selected && d.target.index !== selected })
         .transition()
         .style("opacity", opacityLow);   
 } 
+
+// Manage visibility of chords
+function select(svg, reset, opacityDefault, source, target, opacityLow) {
+    
+    // Reset all selections
+    svg.selectAll("path.chord")
+        // check if this is not the one that is hovered over: apply opacity
+        .filter(function(d) { return d.source.index !== reset || d.target.index !== reset;})
+        .transition()
+        .style("opacity", opacityDefault);    
+
+    // Fade all chords that are not selected
+    svg.selectAll("path.chord")
+        // check if this is not the one that is hovered over: apply opacity
+        .filter(function(d) { return d.source.index !== source || d.target.index !== target;})
+        .transition()
+        .style("opacity", opacityLow);   
+} 
+

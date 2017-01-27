@@ -24,7 +24,6 @@
         <script type="text/javascript" src="script_src/d3.layout.chord.sort.js"></script>
         <script type="text/javascript" src="script_src/d3.stretched.chord.js"></script>
         <script type="text/javascript" src="helper_functions.js"></script>
-       <!--  <script type="text/javascript" src="d3_infobox.js"></script> -->
         <script type="text/javascript" src="d3_chord.js"></script>
         <script type="text/javascript" src="d3_datamap.js"></script>
         <script type="text/javascript" src="d3_barchart.js"></script>
@@ -37,12 +36,18 @@
                     <select id="select" class="js-example-basic-single" style="width: 200px">
                     </select>
                 </div>
-                <div class="btn-group">
-                    <button type="button" class=" btn btn-default" value="family">Antibiotic families</button>
-                    <button type="button" class=" btn btn-default" value="individual">Individual antibiotics</button>
+                <div id="infowindow">
                 </div>
-                <svg id="chord_diagram">
-                </svg>
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-default active">
+                    <input type="radio" name="options" id="family" value="family" checked> Antibiotic families
+                  </label>
+                  <label class="btn btn-default">
+                    <input type="radio" name="options" id="individual" value="individual"> Individual antibiotics
+                  </label>
+                </div>
+                <div id="chord_diagram">
+                </div>
             </div>
         </div>
         <div id="wrapper">
@@ -58,15 +63,4 @@
         <script type="text/javascript" src="d3_index.js"></script>
 	</body>
 </html>
-
-
-
-<!-- <div id=radio-btn>
-<div class="radio">
-<label><input type="radio" name="optradio" value="individual">Individual Antibiotic</label>
-</div>
-<div class="radio">
-<label><input type="radio" name="optradio" value="family">Antibiotic Families</label>
-</div>
-</div> -->
 

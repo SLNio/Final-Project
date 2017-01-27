@@ -15,8 +15,14 @@
 	Stretched chord diagram:
 	http://www.visualcinnamon.com/2015/08/stretched-chord.html
 
+	Automatic scroll funcation:
+    https://www.abeautifulsite.net/smoothly-scroll-to-an-element-without-a-jquery-plugin-2
+
+    Selection bar:
+	https://select2.github.io/examples.html#placeholders
+
 ***************************************************************************/
-function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibiotics, option) {
+function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc, antibiotics, option) {
 
 	// Add chart title
 	$('#chordtitle').text('Antibiotics and resistant bacteria');
@@ -24,9 +30,9 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 	document.getElementById('chord_diagram').innerHTML = "";
 
 	// Define dimensions
-	var margin = {top: 50, right: 50, bottom: 50, left: 50},
-		width = 700 - margin.left - margin.right,
-	    height = 500 - margin.top - margin.bottom,
+	var margin = {top: 90, right: 60, bottom: 30, left: 150},
+		width = 600,
+	    height = 450,
 	    innerRadius = Math.min(width, height) * .39,
 	    outerRadius = innerRadius * 1.05;
 
@@ -103,12 +109,21 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 			.on("click", function(d) { 
 				if (antibiotics.length < 7 && d.index > bacteria.length && 
 					d.index < (element.length - 3)) {
+						automatic_scroll('#wrapper')
 						drawMap(element[d.index], d.index - bacteria.length - 1)
+						$('#infowindow').hide();
 				}
 				else {
-					// open info window
+					$el = $('#infowindow')
+					$el.show();
+					$el.text('Family: ' + element[d.index])
+					$(document).ready(function() {
+    					$('#closeButton').on('click', function(e) { 
+        					$('#infowindow').remove(); 
+					    });
+					});
 				}
-			});
+			})
 		
 		// Draw the outer arcs
 		g.append("path")
@@ -151,6 +166,24 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 			.style("opacity", opacityDefault)
 			.style("pointer-events", function(d,i) { return (element[d.source.index] == "" ? "none" : "auto"); }) //Remove pointer events from dummy strokes
 			.attr("d", path)
+			.on("mouseover", function(d, i) { select(svg, undefined, opacityDefault, d.source.index, d.target.index, opacityLow)})
+			.on("mouseout", function(d, i) { select(svg, undefined, opacityDefault, d.source.index, d.target.index, opacityDefault) })
+
+		svg.append("text")
+			.attr("class", "chordLabels")
+	        .attr("dx", "-24em")
+			.attr("dy", "-13em")
+			.text(label)
+			.style("fill", "#a79e9e")
+            .style("font-size", "18px")
+
+		svg.append("text")
+			.attr("class", "chordLabels")
+	        .attr("dx", "15em")
+			.attr("dy", "-13em")
+			.text("Bacteria")
+			.style("fill", "#a79e9e")
+            .style("font-size", "18px")
 
 		// Add tooltips
 		chords.append("title")
@@ -164,9 +197,7 @@ function drawChord(bacteria, data, sampleSize, resistancePerc, emptyPerc, antibi
 		     	// Get value of selected option
 		        var option = $(this).val();
 		        var index = getIndex(element, option)
-
 		        fade(svg, undefined, opacityDefault, index, opacityLow)
-		     
-		});
+			});
 	})
 }

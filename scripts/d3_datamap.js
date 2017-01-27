@@ -158,7 +158,7 @@ function drawMap(family, family_index) {
 
                             var click_color = {};
                             if (geography.id != selected_cc) {
-                                click_color[geography.id] = "green";
+                                click_color[geography.id] = "#65b9bf"
                             }
                             if (previous_hover_cc && previous_hover_cc != 
                                 geography.id  && selected_cc != previous_hover_cc) {

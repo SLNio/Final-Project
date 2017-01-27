@@ -15,9 +15,6 @@
 	Datamap:
 	http://datamaps.github.io/
 
-	Selection bar:
-	https://select2.github.io/examples.html#placeholders
-
 ***************************************************************************/
 window.onload = function() {
 
@@ -29,6 +26,7 @@ window.onload = function() {
 
 	var familySettings = {
 		data: "data/antibiotic_families.json",
+		label: "Antibiotic families",
 		sampleSize: 20,
 		resistancePerc: 531,
 		emptyPerc: 0.2,
@@ -39,36 +37,38 @@ window.onload = function() {
 	}
 	
 	var individualSettings = {
-		data: "data/antibiotic_individual.json",
-		sampleSize: 40,
-		resistancePerc: 860,
+		data: "data/individual_antibiotic.json",
+		label: "Individual antibiotics",
+		sampleSize: 35,
+		resistancePerc: 859,
     	emptyPerc: 0.2,
     	antibiotics: [
     		"Penicillin", "Streptomycin", "Chloramphenicol", "Isoniazid", 
-			"Vancomycin", "Tetracycline", "Kanamycin", "Oxacillin", "Methicillin", 
+			"Vancomycin", "Tetracycline", "Oxacillin", "Methicillin", 
 			"Ampicillin", "Sulfamethoxazole", "Cefalotin", "Gentamycin", 
-			"Nalidixic acid", "Rifampicin", "Clindamycin", "Trimethoprim-sulfa", 
-			"Amikacin", "Amoxicillin", "Ceftriaxone", "Ceftazidime", 
-			"Ampicillin-sulbactam", "Cetiofur", "Ciprofloxacin", "Moxifloxacin", 
-			"Piperacillin-tazobactam",	
+			"Rifampicin", "Clindamycin", "Trimethoprim-sulfa", 
+			"Amoxicillin", "Ceftazidime", "Ampicillin-sulbactam", "Ciprofloxacin", 
+			"Moxifloxacin", "Piperacillin-tazobactam",	
 		]
 	}
 
 	// Draw chord diagram for selected antibiotics option
-	d3.selectAll(".btn-default")
-	    .on("click", function() {
+	$(".btn-default input")
+	    .on("change", function() {
 
 	    	// Get value of selected antibiotics option
-	        var option = this.getAttribute("value");
+	        // var option = this.getAttribute("value")
+	        var option = $('.btn-default input:radio:checked').val()
+	        console.log(option);
 
 	        if(option == "family"){
 	        	settings = familySettings;
 	        }
-	        else{
+	        else if (option == "individual"){
 	        	settings = individualSettings;
 	        }
 	        changeSelectionbar(bacteria, settings.antibiotics)
-	        drawChord(bacteria, settings.data, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics, option)
+	        drawChord(bacteria, settings.data, settings.label, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics, option)
 		});
 
 	var settings = familySettings;
@@ -78,7 +78,7 @@ window.onload = function() {
 	changeSelectionbar(bacteria, settings.antibiotics)
 
 	// Initiate chord diagram
-	drawChord(bacteria, settings.data, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics, option)
+	drawChord(bacteria, settings.data, settings.label, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics, option)
 
 	// Initiate datamap
 	drawMap('Macrolides', 0);
