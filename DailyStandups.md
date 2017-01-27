@@ -12,8 +12,6 @@
 Vandaag hebben we onze eerste ideeën aan elkaar voorgelegd aan de hand van de gemaakte schetsen. Om de beurt hebben we het voorlopige plan in detail beschreven in ongeveer 4 minuten. Hierna heeft iedereen in de groep hier op gereageerd. We hebben de sterke punten besproken en natuurlijk ook de verbeterpunten genoemd. We hebben elkaar geholpen om het eerste plan aan te scherpen en gezorgd dat iedereen een plan heeft om mee aan de slag te gaan die aan de eisen van de opdracht voldoet.
 
 
-
-
 ## Week 1 Dag 2 - donderdag 12 januari 
 
 
@@ -79,6 +77,7 @@ Vandaag hebben we de laatste toevoegingen aan de style guide gedaan.
 
 ![Selfie dag 7](https://github.com/SLNio/Final-Project/blob/master/doc/23jan.jpg)
 
+
 **Aanwezig:** ShanLi Nio, Lotte Slim, Jan Maarten de Vries, Eline Jacobse 
 **Afwezig** Isa Leijdekkers
 
@@ -88,7 +87,8 @@ We hebben onze plannen voor deze week besproken. Lotte wil vandaag de interactiv
 ## Week 3 Dag 2 - maandag 24 januari 
 
 
-![Selfie dag 7](https://github.com/SLNio/Final-Project/blob/master/doc/24jan.jpg)
+![Selfie dag 8](https://github.com/SLNio/Final-Project/blob/master/doc/24jan.jpg)
+
 
 **Aanwezig:** ShanLi Nio, Lotte Slim, Jan Maarten de Vries, Eline Jacobse, Isa Leijdekkers
 
@@ -97,4 +97,22 @@ Vandaag hebben we besproken hoe ver we zijn gekomen met de plannen die we gister
 
 ## Week 3 Dag 3 - maandag 25 januari 
 
-Niet aanwezig, wegens begrafenis
+
+![Selfie dag 9](https://github.com/SLNio/Final-Project/blob/master/doc/25jan.jpg)
+
+**Aanwezig:** Lotte Slim, Eline Jacobse, Isa Leijdekkers 
+
+**Afwezig:** ShanLi Nio, , Jan Maarten de Vries 
+
+We hebben elkaar geholpen met de structuur van onze repository. De vraag hierbij die bij ons opkwam was of het beter is om 1 main javascript te hebben en 1 javascript waar alle functies instaan, of 1 main en dan allemaal verschillende javascripts met de aparte functies erin. Verder hebben we besproken of we het beter vinden om tekst op onze pagina te zetten. 
+
+
+## Week 3 Dag 4 - donderdag 26 januari 
+
+
+![Selfie dag 10](https://github.com/SLNio/Final-Project/blob/master/doc/26jan.jpg)
+
+
+**Aanwezig:** Lotte Slim, Eline Jacobse, Isa Leijdekkers, ShanLi Nio, , Jan Maarten de Vries
+
+Vandaag hebben we onze projecten tot nu toe aan elkaar laten zien en we hebben verteld wat we nog moeten doen. Eline is bezig met haar laatste visualisatie, een bar chart. Deze moet nog samen met het linken van de visualisaties afgemaakt worden. Lotte heeft bijna alle interactiviteit af. Alleen het springen naar het juiste land in de tabel werkt nog niet. Shan Li werkt nog aan de tooltip van haar eerste visualisatie. De map en barchart zijn zo goed als klaar, er zitten alleen nog hele kleine bugs in. De pie chart van Jan Maarten klopt nog niet helemaal, dus daar gaat hij nog aan werken. Ook wil hij nog informatie toevoegen over wanneer de albums zijn gemaakt. Isa moet de bubble chart nog afmaken en de zoekfunctie optimaliseren. Ook moeten de visualisaties nog gelinkt worden.
