@@ -104,3 +104,8 @@ Furthermore several bugs in the chord diagram were fixed, such as the disappeara
 ![Clear option](https://github.com/SLNio/Final-Project/blob/master/doc/Clear.PNG)
 
 The coming two days will be worked on the ability to hover not only over the chord diagram outer arcs, but also over the inner chords. In this way particular chords can be selected by the user, which makes it easier to read the tooltips with the exact resistance percentages. Additionally, tooltips with info over the different bacteria and antibiotics will be added, bugs will be fixed and if their is still time this week several changes to the layout will be made.
+
+#day 14
+Adjust the radio button, so it will be clear which option is selected and add labels to the chord diagram, so it will be clear what data both arcs represent.
+
+![Radio button and labels](https://github.com/SLNio/Final-Project/blob/master/doc/radiobutton.jpg)
