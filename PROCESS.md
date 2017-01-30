@@ -103,9 +103,19 @@ Furthermore several bugs in the chord diagram were fixed, such as the disappeara
 
 ![Clear option](https://github.com/SLNio/Final-Project/blob/master/doc/Clear.PNG)
 
-The coming two days will be worked on the ability to hover not only over the chord diagram outer arcs, but also over the inner chords. In this way particular chords can be selected by the user, which makes it easier to read the tooltips with the exact resistance percentages. Additionally, tooltips with info over the different bacteria and antibiotics will be added, bugs will be fixed and if their is still time this week several changes to the layout will be made.
+The coming days will be worked on the ability to hover not only over the chord diagram outer arcs, but also over the inner chords. In this way particular chords can be selected by the user, which makes it easier to read the tooltips with the exact resistance percentages. Additionally, tooltips with info over the different bacteria and antibiotics will be added, bugs will be fixed and if their is still time this week several changes to the layout will be made.
 
 #day 14
-Adjust the radio button, so it will be clear which option is selected and add labels to the chord diagram, so it will be clear what data both arcs represent.
+Implement a hover function for the inner chords. Adjust the radio button, so it will be clear which option is selected and add labels to the chord diagram, so it will be clear what data both arcs represent.
+
+![Hoverfunction inner chords](https://github.com/SLNio/Final-Project/blob/master/doc/hover_inner.jpg)
 
 ![Radio button and labels](https://github.com/SLNio/Final-Project/blob/master/doc/radiobutton.jpg)
+
+#day 15
+Change the layout of the page, so it will look more appealing for the user. Besides providing all different data sections from titles and backgrounds, I have worked on the implementation of a navigation bar to navigate to the different sections. Furthermore I've decided to create an appearing div element, rather than a tooltip to show additional info about a clicked item of the chord diagram. I made this decision, because I thought the information would be more accessible in this way. Not only could I display more information at the same time, but I could also define the exact position of the information window.
+
+![Layout](https://github.com/SLNio/Final-Project/blob/master/doc/Layout.jpg)
+
+In addition a few bugs were fixed. For example: when the close button in the selection bar was clicked, all chords dissapeared and when the user moved its cursor out of the chloropleth map, the last touched country remained colored by the hover function.
+I have also worked on a function to update the barchart data, so the redrawing of the bars is more smooth.
