@@ -16,9 +16,13 @@
 
 ***************************************************************************/
 
+// Make the updateBarchart function accesible for other files
+var updateBarchart;
+
+// Draw barchart 
 function drawBarchart(country, code, family) {
 
-	// Remove old barchart
+	// Remove apology text
     document.getElementById('barchart').innerHTML = "";
 
 	// Change title of bargraph dynamically
@@ -28,7 +32,7 @@ function drawBarchart(country, code, family) {
 	var width = 360,
 	    height = 300;
 		margin = {top: 10, left: 50};
-		x = d3.scale.ordinal().rangeRoundBands([0, width-40], .1);
+		x = d3.scale.ordinal().rangeRoundBands([0, width -40], .1);
 		y = d3.scale.linear().range([height, 0]);
 
 	// Define axes
@@ -62,29 +66,8 @@ function drawBarchart(country, code, family) {
 	d3.json("data/europe_data.json", function (error, data) {
 		if (error) throw error;
 
-		var dataset = {}
-
-		// convert string data into integer data
-		data.forEach(function(d){
-
-			country_code = d.Code,
-			Macrolides = +d.Macrolides,
-			Tetracyclines = +d.Tetracyclines,
-			Cephalosporins = +d.Cephalosporins,
-			Penicillins = +d.Penicillins,
-			Quinolones = +d.Quinolones
-
-			// store values per country
-			dataset[country_code] = [
-				{'family': 'Macrolides', 'value': Macrolides},
-				{'family': 'Tetracyclines', 'value': Tetracyclines},
-				{'family': 'Cephalosporins', 'value': Cephalosporins},
-				{'family': 'Penicillins', 'value': Penicillins},
-				{'family': 'Quinolones', 'value': Quinolones}
-			]
-		})
-
 		// Prepare dataset for selected country
+		var dataset = generateBarchartData(data)
 		var countrydata = dataset[code]
 
 		// scale the range of the data
@@ -105,6 +88,7 @@ function drawBarchart(country, code, family) {
 	    // Draw Y-axis
 		svg.append("g")
 		    .attr("class", "y axis")
+		    .attr("id", "y")
 		    .call(yAxis)
 		  .append("text")
 		    .attr("transform", "rotate(-90)")
@@ -118,8 +102,6 @@ function drawBarchart(country, code, family) {
 		svg.selectAll(".bar")
 		    .data(countrydata)
 		  .enter().append("rect")
-		  	// .transition() 
-		  	// .duration(1000) 
 		    .attr("class", "bar")
 		    .attr("x", function(d) { return x(d.family); })
 		    .attr("y", function(d) { return y(d.value); })
@@ -128,18 +110,36 @@ function drawBarchart(country, code, family) {
 		    .style("fill", function(d, i) { return d.family == family ? '#02818a' : '#7ED0C4'; })
 		    .on('mouseover', tip.show)
       		.on('mouseout', tip.hide);
-
-  //     	var transition = d3.transition().duration(750)
-  //     	var delay = function(d, i) { return i * 200; };
-
-		// transition.selectAll(".bar")
-		//     .delay(delay)
-	 //        .attr("x", function(d) { return x(d.family); });
-
-	 //    transition.select(".x.axis")
-	 //        .call(xAxis)
-	 //      .selectAll("g")
-	 //        .delay(delay);
-
     })
+
+	// Update barchart for selected country
+    updateBarchart = function(country, code, family) {
+
+	    var updatebar = svg.selectAll('.bar')
+
+	    // Change title of bargraph dynamically
+		$('#bartitle').text('Antibiotic consumption in ' + country + '');
+
+	    // Load dataset with d3
+	    d3.json("data/europe_data.json", function (error, data) {
+	        if (error) throw error;
+
+	        // Prepare dataset for selected country
+	        var dataset = generateBarchartData(data),
+	        	newdata = dataset[code];
+	 
+	 		// Update bars with smooth transition
+	        updatebar.data(newdata)
+	            .transition().delay(function (d,i){ return i * 300;})
+	            .duration(1000)
+	            .attr("height", function(d) { return height - y(d.value); })
+	            .attr("y", function(d) { return y(d.value); })
+	            .style("fill", function(d, i) { return d.family == family ? '#02818a' : '#7ED0C4'; })
+
+	        // Update Y-axis with smooth transition
+	        svg.select("#y")
+	            .transition().duration(1000)
+	            .call(yAxis)
+	    })
+	}
 }

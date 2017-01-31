@@ -8,7 +8,7 @@
 import csv
 import json
 
-with open('Europe_data.csv','r') as file:
+with open('info.csv','r') as file:
 
     reader = csv.reader(file, delimiter=';')
     headerlist = next(reader)
@@ -23,5 +23,5 @@ with open('Europe_data.csv','r') as file:
 
         csvlist.append(data)
 
-with open('europe_data.json', 'w') as file:
+with open('info.json', 'w') as file:
     json.dump(csvlist,file)

@@ -19,7 +19,7 @@
 window.onload = function() {
 
 	var bacteria = [
-		"A. baumanii", "K. pneumoniae", "E. faecium", "N. gonorrhoea", "Shigella", 
+		"A. baumanii", "K. pneumoniae", "E. faecium", "N. gonorrhoeae", "Shigella", 
 		"M. tuberculosis", "P. mirabilis", "CoNS", "C. difficile", "P. aeruginosa", 
 		"S. pneumoniae", "E. coli", "S. aureus",
 	]
@@ -57,9 +57,7 @@ window.onload = function() {
 	    .on("change", function() {
 
 	    	// Get value of selected antibiotics option
-	        // var option = this.getAttribute("value")
 	        var option = $('.btn-default input:radio:checked').val()
-	        console.log(option);
 
 	        if(option == "family"){
 	        	settings = familySettings;
@@ -73,6 +71,8 @@ window.onload = function() {
 
 	var settings = familySettings;
 	var option = ""
+
+	showText()
 
 	// Initiate selection bar
 	changeSelectionbar(bacteria, settings.antibiotics)

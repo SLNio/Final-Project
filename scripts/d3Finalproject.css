@@ -9,36 +9,106 @@
 
 ***************************************************************************/
 
-#chordwrapper {
-	border-color: #02818a;
-	border-style: solid;
-	height:660px;
+#main {
 	margin: 0 auto;	
-	width: 1210px;
+	max-width: 1400px;
+	min-width: 1200px;
+}
+
+.titles {
+	font-family: 'Habibi', serif;
+	color: white;
+}
+
+#header {
+	background-color: #02818a;
+	color: white;
+	height: 150px;
+	padding-top: 20px;
+	position: relative;
+	text-align: center;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+#headerPic {
+	height:150px;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width:220px;
+}
+
+#navbar {
+	background-color: #7ed0c4;
+	list-style-type: none;
+	overflow: hidden;	 	
+}
+
+.navigation 
+{
+  	display: block;
+  	float: right;
+  	padding: 18px 35px;
+	color: #f5f5f5;
+  	text-decoration: none;
+}
+
+.navigation:hover 
+{
+  	background-color: #62a79d;
+  	color: #f5f5f5;
+  	text-decoration: none;
+}
+
+#intro {
+	background: url("data/antibiotics.jpg") no-repeat;
+	margin-left: 80px;
+	min-height: 500px;
+	opacity: 0.4;
+	padding-top: 250px;
+}
+
+#introText {
+	color: black;
+	font-size: 20px;
+	opacity: 1px;
+/*	padding: 100px;*/
+	/*padding-top: 0px;*/
+	text-align: center;
+	/*vertical-align: middle;*/
+	width: 1200px;
+}
+
+.nextprev {
+	margin-left: 500px;
+	width: 200px;
 }
 
 #chordtitle {
 	height: 30px;
+	width: 900px;
 	text-align: center;
 }
 
 #chord {
+	min-height: 500px;
 	position: relative;
 }
 
-#chord_diagram {
-	height: 700px;
-	margin-bottom: 20px;	
-	position: relative;
-	width: 700px;
+#elements {
+/*	background-color: #7ed0c4;
+*/	
+	background: url('data/petridish.jpg');
+	float: right;
+	height: 606px;
+	opacity: 0.2;
+	width: 390px;
 }
 
-.chordLabels {
-	color: blue;
-	font-size: 15px;
-}
-
-.titles {
+.nonclickTitles {
 	font-size: 12px;
 }
 
@@ -47,16 +117,16 @@
 	font-weight: bold;
 }
 
-#navbar {
+#selectbar {
 	position: absolute;
-	right: 110px;
-	top: 130px;
+	right: 100px;
+	top: 80px;
 }
 
 .btn-group {
-	bottom: 180px;
+	bottom: 10px;
 	position: absolute;
-	right: 65px;
+	right: 370px;
 }
 
 .btn-default {
@@ -65,44 +135,42 @@
 }
 
 #infowindow {
+	background-color: rgba(255, 255, 255, 0.7);
 	border-color: #02818a;
 	border-radius: 20px;
 	border-style: solid;
 	border-width: 1px;
 	display: none;
-	height: 250px;
+	height: 200px;
 	padding: 30px;
 	position: absolute;
-	right: 60px;
-	bottom: 260px;
-	width: 300px;
+	right: 40px;
+	bottom: 170px;
+	width: 450px;
 }
 
-/*#closeButton {
-    position: absolute;
-    top: 0;
-    right: 0;
-}*/
-
 #closeButton {
-    float:right;
     display:inline-block;
-    padding:2px 5px;
-    background:#ccc;
+    position: relative;
+    right: 2px;
+}
+
+#intermediate {
+	min-height: 100px;
+	background-color: #02818a;
 }
 
 #wrapper {
-	height:500px;
-	margin: 0 auto;
-	margin-top: 5px;
-	width: 1210px;
+	min-height: 500px;
+	padding-bottom: 100px;
+	padding-top: 20px;
+	margin-bottom: 20px;
+	min-width: 1200px;
 }
 
 #mapwrapper {
-	border-color: #02818a;
-	border-style: solid;
 	float: left;
-	width: 750px;
+	/*width: 750px;*/
 }
 
 #maptitle {
@@ -113,7 +181,7 @@
 #datamap {
 	height:400px;
 	position: relative;
-	width: 750px;
+	/*width: 750px;*/
 }
 
 #legendtitle {
@@ -127,15 +195,13 @@
 }
 
 #barwrapper {
-	border-color: #02818a;
-	border-style: solid;
 	float: right;
-	width: 458px;
+	margin-right: 50px;
+	margin-top: 20px;
 }
 
 #barchart {
 	height: 395px;
-	margin-left: 30px;
 	padding-left: 10px;
 	width: 400px;
 }
@@ -192,5 +258,63 @@
 #bartitle {
 	height: 30px;
 	text-align: center;
+}
+
+#references {
+	background-color: #02818a;
+	min-height: 500px;
+	padding-bottom: 50px;
+	padding-top: 20px;
+}
+
+#referenceTitle {
+	margin-left: 40px;
+}
+
+#referencebox {
+	background-color: rgba(255, 255, 255, 0.6);
+	border-color: #02818a;
+	border-radius: 15px;
+	border-style: solid;
+	height: 425px;
+	margin-left: 20px;
+	padding: 25px;
+	width: 500px;
+}
+
+h4 {
+	margin-bottom: 45px;
+}
+
+a {
+	color: #333;
+}
+
+.sources {
+	font-size: 15px;
+	margin-top: 8px;
+}
+
+#bacteria_pictures {
+	display: inline-block;
+	float: right;
+	margin-right: 60px;
+	margin-top: 107px;
+	width: 680px;
+}
+
+.pictures {
+	border-radius: 100px;
+	height: 200px;
+	margin: 10px;
+	opacity: 0.9;
+	top: 100px;
+	width: 200px;
+}
+
+.footer {
+	color: #02818a;
+	float: left;
+	margin-top: 20px;
 }
 

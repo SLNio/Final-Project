@@ -119,3 +119,17 @@ Change the layout of the page, so it will look more appealing for the user. Besi
 
 In addition a few bugs were fixed. For example: when the close button in the selection bar was clicked, all chords dissapeared and when the user moved its cursor out of the chloropleth map, the last touched country remained colored by the hover function.
 I have also worked on a function to update the barchart data, so the redrawing of the bars is more smooth.
+
+#day 16
+Finish the layout of the reference section and start with the implememtation of an introduction section. The reference section includes hyperlinks to the websites of the data sources. 
+
+![References](https://github.com/SLNio/Final-Project/blob/master/doc/References.jpg)
+
+Regarding the coding, what still needs to be done is: 
+<ol>
+<li>Creating another tooltip for the chord diagram, so clicking on chords will not result in disappearance of the tooltip</li>
+<li>Writing a function to add information to the intro section</li>
+<li>Implementation of a next/previous button or an animation which shows the text automatically</li>
+</ol>
+
+Furthermore I will work on the report and improve my code.

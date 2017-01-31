@@ -17,8 +17,8 @@ function changeSelectionbar(bacteria, antibiotics) {
     // Remove old antibiotics selection from bar
     document.getElementById('select').innerHTML = "";
 
-    make_children(selections, "Bacteria", bacteria)
-    make_children(selections, "Antibiotics", antibiotics)
+    makeChildren(selections, "Bacteria", bacteria)
+    makeChildren(selections, "Antibiotics", antibiotics)
 
     // Add selection bar with search field
     $(document).ready(function() {
@@ -30,7 +30,8 @@ function changeSelectionbar(bacteria, antibiotics) {
     });
 }
 
-function make_children(selections, name, data) {
+// Create data-objects for selection bar
+function makeChildren(selections, name, data) {
     var children = [];
 
     // Create objects for all options
@@ -49,6 +50,7 @@ function make_children(selections, name, data) {
     });
 }
 
+// Index of the selected option
 function getIndex(element, option) {
     for (var i = 0; i < element.length; i++) {
         if (element[i] == option){
@@ -58,18 +60,22 @@ function getIndex(element, option) {
 }
 
 // Smooth automatic scroll function
-function automatic_scroll(element){
+function automaticScroll(element){
     $('html, body').animate({
         scrollTop: $(element).offset().top
     }, 1000);
 }
 
+function showInfo(){
+
+}
+
 // Assign countries to fillkey groups
-function get_group_for_cc(country_code, domain, dataset, family_index) {
+function getCountryGroup(country_code, domain, dataset, familyIndex) {
     var total = dataset[country_code];
     for (var i = 0; i < domain.length; i++){
         if (total != undefined){
-            if (total[family_index] < domain[i]) {
+            if (total[familyIndex] < domain[i]) {
                 return 'group_' + i;
             }
         }
@@ -95,7 +101,7 @@ function apologize() {
         .text("Sorry no data available for this country")
 }  
 
-// Manage visibility of chords when hovered over arcs/slec
+// Manage visibility of chords when hovered over arcs or selected from bar
 function fade(svg, reset, opacityDefault, selected, opacityLow) {
     
     // Reset all selections
@@ -113,7 +119,7 @@ function fade(svg, reset, opacityDefault, selected, opacityLow) {
         .style("opacity", opacityLow);   
 } 
 
-// Manage visibility of chords
+// Manage visibility of chords when hovered over chords
 function select(svg, reset, opacityDefault, source, target, opacityLow) {
     
     // Reset all selections
@@ -130,4 +136,41 @@ function select(svg, reset, opacityDefault, source, target, opacityLow) {
         .transition()
         .style("opacity", opacityLow);   
 } 
+
+function chordTooltip(svg, element) {
+    var chords = svg.selectAll("path.chord")
+    
+    chords.append("title")
+    .html(function(d) {
+        return Math.round(d.source.value) + "% resistance to " + 
+            element[d.target.index]; 
+    }); 
+}
+
+function generateBarchartData(data) {
+
+    var dataset = {}
+
+    data.forEach(function(d){
+
+        // convert string data into integer data
+        Macrolides = +d.Macrolides,
+        Tetracyclines = +d.Tetracyclines,
+        Cephalosporins = +d.Cephalosporins,
+        Penicillins = +d.Penicillins,
+        Quinolones = +d.Quinolones
+
+        // store values per country
+        dataset[d.Code] = [
+            {'family': 'Macrolides', 'value': Macrolides},
+            {'family': 'Tetracyclines', 'value': Tetracyclines},
+            {'family': 'Cephalosporins', 'value': Cephalosporins},
+            {'family': 'Penicillins', 'value': Penicillins},
+            {'family': 'Quinolones', 'value': Quinolones}
+        ]
+    })
+
+    return dataset;
+}
+
 

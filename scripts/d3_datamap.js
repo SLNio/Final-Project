@@ -19,17 +19,17 @@
 
 ***************************************************************************/
 
-function drawMap(family, family_index) {
+function drawMap(family, familyIndex) {
 
     var domain = [],
-        domain_penicillin = [6, 8, 10, 12, 15, Infinity],
-        domain_other = [0.5, 1, 2, 3, 4, Infinity];
+        domainPenicillin = [6, 8, 10, 12, 15, Infinity],
+        domainOther = [0.5, 1, 2, 3, 4, Infinity];
 
-    if (family_index == 2) {
-        domain = domain_penicillin
+    if (familyIndex == 2) {
+        domain = domainPenicillin
     }
     else {
-        domain = domain_other
+        domain = domainOther
     }
 
     // Change title of datamap dynamically
@@ -43,14 +43,12 @@ function drawMap(family, family_index) {
 
         // convert string data into integer data
         data.forEach(function(d){
-
-            country_code = d.Code,
             macrolides = +d.Macrolides,
             cephalosporins = +d.Cephalosporins,
             penicillins = +d.Penicillins,
             quinolones = +d.Quinolones
-
-            dataset[d.Code] = [macrolides, cephalosporins, penicillins, quinolones]
+            dataset[d.Code] = [macrolides, cephalosporins, penicillins, 
+                quinolones]
         })
 
         // Remove old map
@@ -58,28 +56,28 @@ function drawMap(family, family_index) {
 
         // Load list of countries and country codes
         var countries = Datamap.prototype.worldTopo.objects.world.geometries;     
-        var new_data = {}
+        var newData = {}
 
         countries.forEach(function(d){
 
             // Create a data object
-            var country_code = d.id;
+            var countryCode = d.id;
 
-            var group = get_group_for_cc(country_code, domain, dataset, family_index);
-            var total = dataset[country_code];
+            var group = getCountryGroup(countryCode, domain, dataset, 
+                familyIndex);
+            var total = dataset[countryCode];
 
             if (group == 'group_default') {
-                new_data[country_code] = {fillKey: 'group_default', 
+                newData[countryCode] = {fillKey: 'group_default', 
                         data: ['No data available']}
             }
             else {
-                new_data[country_code] = {fillKey: group, 
-                        data: total[family_index]}
+                newData[countryCode] = {fillKey: group, 
+                        data: total[familyIndex]}
             }
-
         });
 
-        var fill_colors = {
+        var fillColors = {
             group_0: '#fdd49e',
             group_1: '#fc8d59',
             group_2: '#ef6548', 
@@ -89,7 +87,7 @@ function drawMap(family, family_index) {
             group_default: 'lightgrey'
         };
 
-        var fill_colors_list = [
+        var fillColorsList = [
             {name: 'group_0', color: '#fdd49e'},
             {name: 'group_1', color: '#fc8d59'},
             {name: 'group_2', color: '#ef6548'}, 
@@ -110,44 +108,54 @@ function drawMap(family, family_index) {
                       .center([15, 52])
                       .rotate([4.4, 0])
                       .scale(600)
-                      .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+                      .translate([element.offsetWidth / 2, element.offsetHeight 
+                        / 2]);
                     var path = d3.geo.path()
                       .projection(projection);
                     return {path: path, projection: projection};
                 },
-                fills: fill_colors,
-                data: new_data,
+                fills: fillColors,
+                data: newData,
                 geographyConfig: {
-                    highlightBorderColor: "#02818a",
                     popupTemplate: function(geography, data) {
                         return '<div class="hoverinfo"><strong>' + 
                             geography.properties.name + '</strong><br />' 
                             + 'Consumption: ' + data.data + ' '
                     },
-                    highlightFillColor: false,
-                    highlightOnHover: false,
-                    highlightBorderWidth: 2
+                    highlightOnHover: false
                 },
 
                 // Call functions when a country is clicked
                 done: function(datamap){
-                    var selected_cc = undefined;
-                    var previous_hover_cc = undefined;
+                    var selectedCountry = undefined,
+                        prevHoverCountry = undefined,
+                        clickColor = {};
+                        apology = '<text class="apology" dx="0.8em" dy="8em" style="fill: rgb(150, 150, 150);">Sorry no data available for this country</text>'
 
                     datamap.svg.selectAll('.datamaps-subunit').on('click', 
                         function(geography) {
-                            var click_color = {};
-                            click_color[geography.id] = "#02818a";
-                            if (selected_cc && selected_cc != geography.id) {
-                                group = get_group_for_cc(selected_cc, domain, dataset, family_index);
-                                click_color[selected_cc] = fill_colors[group];
-                            }
-                            selected_cc = geography.id;
 
-                            datamap.updateChoropleth(click_color);
+                            clickColor[geography.id] = "#02818a";
+                            if (selectedCountry && selectedCountry != geography.id) 
+                            {   
+                                group = getCountryGroup(selectedCountry, domain, 
+                                    dataset, familyIndex);
+                                    clickColor[selectedCountry] = fillColors[group];
+                            }
+                            selectedCountry = geography.id;
+
+                            datamap.updateChoropleth(clickColor);
 
                             if (dataset[geography.id] != undefined) {
-                               drawBarchart(geography.properties.name, geography.id, family)
+                                if (document.getElementById('barchart').innerHTML == apology)
+                                {
+                                    drawBarchart(geography.properties.name, 
+                                        geography.id, family)
+                                }
+                                else {
+                                    updateBarchart(geography.properties.name, 
+                                        geography.id, family)
+                                }
                             }
                             else {
                                 apologize()
@@ -156,17 +164,30 @@ function drawMap(family, family_index) {
                     datamap.svg.selectAll('.datamaps-subunit').on('mouseenter', 
                         function(geography) {
 
-                            var click_color = {};
-                            if (geography.id != selected_cc) {
-                                click_color[geography.id] = "#65b9bf"
+                            if (geography.id != selectedCountry) {
+                                clickColor[geography.id] = "#65b9bf"
                             }
-                            if (previous_hover_cc && previous_hover_cc != 
-                                geography.id  && selected_cc != previous_hover_cc) {
-                                group = get_group_for_cc(previous_hover_cc, domain, dataset, family_index);
-                                click_color[previous_hover_cc] = fill_colors[group];
+                            if (prevHoverCountry && prevHoverCountry != 
+                                geography.id  
+                                && selectedCountry != prevHoverCountry) 
+                            {
+                                group = getCountryGroup(prevHoverCountry, 
+                                    domain, dataset, familyIndex);
+                                clickColor[prevHoverCountry] = fillColors[group];
                             }
-                            previous_hover_cc = geography.id;
-                            datamap.updateChoropleth(click_color);
+                            prevHoverCountry = geography.id;
+                            datamap.updateChoropleth(clickColor);
+                    })
+                    datamap.svg.selectAll('.datamaps-subunit').on('mouseleave', 
+                        function(geography) {
+
+                            if (geography.id != selectedCountry) {
+                                group = getCountryGroup(prevHoverCountry, 
+                                    domain, dataset, familyIndex);
+                                clickColor[prevHoverCountry] = fillColors[group];
+                            }
+                            prevHoverCountry = geography.id;
+                            datamap.updateChoropleth(clickColor);
                     })
 
                     var x = 30,
@@ -189,7 +210,7 @@ function drawMap(family, family_index) {
                         .text("Consumption (Defined Daily Dose)")
 
                     legend.selectAll(".box")
-                        .data(fill_colors_list)
+                        .data(fillColorsList)
                       .enter().append("rect")
                         .attr("class", "box")
                         .attr("x", x)
@@ -200,7 +221,7 @@ function drawMap(family, family_index) {
 
                     // Add legend labels                    
                     legend.selectAll(".label")
-                        .data(function(d,i) { return (family_index == 2 ? 
+                        .data(function(d,i) { return (familyIndex == 2 ? 
                             legendLabelsPen : legendLabels); })
                       .enter().append("text")
                         .attr("class", "label")

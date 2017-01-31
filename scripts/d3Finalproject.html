@@ -11,6 +11,7 @@
 	<head>
         <meta charset="utf-8"/>
     	<title>Antibiotics and Antibiotic Resistance</title>
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Farsan|Fira+Sans+Condensed|Habibi|Open+Sans+Condensed:300|Raleway" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="script_src/select2.min.css" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="d3Finalproject.css"/>
@@ -24,41 +25,113 @@
         <script type="text/javascript" src="script_src/d3.layout.chord.sort.js"></script>
         <script type="text/javascript" src="script_src/d3.stretched.chord.js"></script>
         <script type="text/javascript" src="helper_functions.js"></script>
+        <script type="text/javascript" src="d3_intro.js"></script>
         <script type="text/javascript" src="d3_chord.js"></script>
         <script type="text/javascript" src="d3_datamap.js"></script>
         <script type="text/javascript" src="d3_barchart.js"></script>
 	</head>
 	<body>
-        <div id="chordwrapper">
-            <h2 id="chordtitle"></h2>
-            <div id="chord">
-                <div id="navbar">
-                    <select id="select" class="js-example-basic-single" style="width: 200px">
-                    </select>
+        <div id="main">
+            <div id="header">
+                <h1 class="titles">Pills &amp; Pathogens</h1>
+                <h4 class="titles">Antibiotics, their consumption in Europe and their resistant bacteria</h4>
+                <img id="headerPic" src="data/antibiotics3.jpg" alt="Antibiotics">
+            </div>
+            <ul id="navbar">
+                <li><a class="navigation" href="#references">References</a></li>
+                <li><a class="navigation" href="#intermediate">Antibiotic Consumption</a></li>
+                <li><a class="navigation" href="#chordwrapper">Antibiotic Resistance</a></li>    
+            </ul>
+            <div id="intro">
+                <div id="introText">
                 </div>
-                <div id="infowindow">
-                </div>
-                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-default active">
-                    <input type="radio" name="options" id="family" value="family" checked> Antibiotic families
-                  </label>
-                  <label class="btn btn-default">
-                    <input type="radio" name="options" id="individual" value="individual"> Individual antibiotics
-                  </label>
-                </div>
-                <div id="chord_diagram">
+                <nav aria-label="...">
+                  <ul class="nextprev">
+                    <li><a href="#">Previous</a></li>
+                    <li><a href="#">Next</a></li>
+                  </ul>
+                </nav>
+            </div>
+            <div id="intermediate"></div>
+            <div id="chordwrapper">
+                <h2 id="chordtitle"></h2>
+                <div id="chord">
+                <div id="elements"></div>
+                    <div id="selectbar">
+                        <select id="select" class="js-example-basic-single" style="width: 200px">
+                        </select>
+                    </div>
+                    <div id="infowindow" class="alert-dismissible">
+                        <button id="closeButton" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div class="text"></div>
+                    </div>
+                    <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default active">
+                        <input type="radio" name="options" id="family" value="family" checked> Antibiotic families
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="radio" name="options" id="individual" value="individual"> Individual antibiotics
+                      </label>
+                    </div>
+                    <div id="chorddiagram"></div>
                 </div>
             </div>
-        </div>
-        <div id="wrapper">
-            <div id="mapwrapper">
-                <h2 id="maptitle"></h2>
-                <div id="datamap"></div>
+            <div id="intermediate"></div>
+            <div id="wrapper">
+                <div id="mapwrapper">
+                    <h2 id="maptitle"></h2>
+                    <div id="datamap"></div>
+                </div>
+                <div id="barwrapper">
+                    <h3 id="bartitle"></h3>
+                    <svg id="barchart"></svg>
+                </div>
             </div>
-            <div id="barwrapper">
-                <h3 id="bartitle"></h3>
-                <svg id="barchart"></svg>
+
+            <div id="references">
+                <h1 class="titles" id="referenceTitle">References</h1>
+                <div id="bacteria_pictures">
+                    <img class="pictures" id="bacteria_1" src="data/bacteria1.jpg" alt="bacteria_1">
+                    <img class="pictures" id="bacteria_2" src="data/bacteria2.jpg" alt="bacteria_2">
+                    <img class="pictures" id="bacteria_3" src="data/bacteria3.jpg" alt="bacteria_3">
+                </div>
+                <div id="referencebox">
+                    <h4>Concept &amp; Design
+                        <div class="sources">Shan Li Nio, &nbsp; 
+                            <a href="http://www.uva.nl/en/home">University of Amsterdam</a>
+                            (6222420)
+                        </div>
+                    </h4>
+                    <h4>Research
+                        <div class="sources">
+                            <a href="http://www.cddep.org/research-area/antibiotic-resistance#sthash.4CHZJft1.dpbs">Centre for Disease Dynamics, Economics &amp; Policy</a>
+                        </div>
+                        <div class="sources">
+                            <a href="http://www.who.int/topics/antimicrobial_resistance/en/">World Health Organization</a>
+                        </div>
+                        <div class="sources">
+                            <a href="https://docs.google.com/spreadsheets/d/1QMSQDr0vx_NuMkbSb-9wjUCBplMZpYvxASTJh1M-NhI/edit#gid=0">Data (2013)</a>
+                        </div>
+                    </h4>
+                    <h4>Antibiotics info
+                        <div class="sources">
+                            <a href="http://www.nature.com/nrd/journal/v12/n5/fig_tab/nrd3975_F1.html">Nature Reviews Drug Discovery, Kim Lewis (2013)</a>
+                        </div>
+                    </h4>
+                    <h4>Bacteria info
+                       <div class="sources">
+                            <a href="https://www.wikipedia.org/">Wikipedia</a>
+                        </div>
+                    </h4>
+                </div>
             </div>
+            <ul id="navbar">
+                <li><a class="navigation" href="#references">References</a></li>
+                <li><a class="navigation" href="#intermediate">Antibiotic Consumption</a></li>
+                <li><a class="navigation" href="#chordwrapper">Antibiotic Resistance</a></li> 
+                <li><div class="footer">Powered by &nbsp;</div><li>
+                <li><a class="footer" href="http://www.mprog.nl/">Minor Programmeren</a></li>
+            </ul>
         </div>
         <script type="text/javascript" src="d3_index.js"></script>
 	</body>

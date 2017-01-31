@@ -1,0 +1,41 @@
+name;characteristics;family;fullname
+A. baumanii;Pneumonia, Meningitis;Gram-negative bacteria;Acetinobacter baumanii
+K. pneumoniae;Pneumonia, Bronchitis, Urinary infections;Gram-negative bacteria;Klebsiella pneumoniae
+E. faecium;Urinary infections;Gram-positive bacteria;Enterococcus faecium
+N. gonorrhoeae;Gonorrhoea;Gram-negative bacteria;Neisseria gonorrhoeae
+Shigella;Dysentry;Gram-negative bacteria;Shigella
+M. tuberculosis;Tuberculosis;Neither Gram-negative nor Gram-positive;Mycobacterium tuberculosis
+P. mirabilis;Kidney stones, Proteus;Gram-negative bacteria;Proteus mirabilis
+CoNS;Food poisoning;Gram-positive bacteria;Coagulase-negative Staphilococci
+C. difficile;Severe diarrhoea, Colitis;Gram-positive bacteria;Clostridium difficile
+P. aeruginosa;Lung, Urinary, Skin, Wound & Blood Infections;Gram-negative bacteria;Pseudomonas aeruginosa
+S. pneumoniae;Pneumonia, Meningitis & many other infections;Gram-positive bacteria;Streptococcus pneumoniae
+E. coli;Food Poisoning;Gram-negative bacteria;Escherichia coli
+S. aureus;Boils, Sinusitis, Food Poisoning;Gram-positive bacteria;Staphylococcus aureus
+Penicillin;Cell wall;Penicillins;
+Streptomycin;Protein synthesis;Aminoglycosides;
+Chloramphenicol;Protein synthesis;-;
+Isoniazid;Cell wall;-;
+Vancomycin;Cell wall;Glycopeptides;
+Tetracycline;Protein synthesis;Tetracyclines;
+Oxacillin;Cell wall;Penicillins;
+Methicillin;Cell wall;Penicillins;
+Ampicillin;Cell wall;Penicillins;
+Sulfamethoxazole;Metabolism;Sulfonamides;
+Cefalotin;Cell wall;Cephalosporins;
+Gentamycin;Protein synthesis;Aminoglycosides;
+Rifampicin;DNA synthesis;Rifamycin;
+Clindamycin;Protein synthesis;Lincoamides;
+Trimethoprim-sulfa;Metabolism;Sulfonamides;
+Amoxicillin;Cell wall;Penicillins;
+Ceftazidime;Cell wall;Cephalosporins;
+Ampicillin-sulbactam;Cell wall;Penicillins;
+Ciprofloxacin;DNA synthesis;Fluorquinolones;
+Moxifloxacin;DNA synthesis;Fluorquinolones;
+Piperacillin-tazobactam;Cell wall;Penicillins;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
