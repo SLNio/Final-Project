@@ -25,7 +25,7 @@ window.onload = function() {
 	]
 
 	var familySettings = {
-		data: "data/antibiotic_families.json",
+		data: "scripts/data/antibiotic_families.json",
 		label: "Antibiotic families",
 		sampleSize: 20,
 		resistancePerc: 531,
@@ -37,7 +37,7 @@ window.onload = function() {
 	}
 	
 	var individualSettings = {
-		data: "data/individual_antibiotic.json",
+		data: "scripts/data/individual_antibiotic.json",
 		label: "Individual antibiotics",
 		sampleSize: 35,
 		resistancePerc: 859,
