@@ -63,7 +63,7 @@ function drawBarchart(country, code, family) {
   	svg.call(tip);
 
     // Load dataset with d3
-	d3.json("data/europe_data.json", function (error, data) {
+	d3.json("scripts/data/europe_data.json", function (error, data) {
 		if (error) throw error;
 
 		// Prepare dataset for selected country
@@ -121,7 +121,7 @@ function drawBarchart(country, code, family) {
 		$('#bartitle').text('Antibiotic consumption in ' + country + '');
 
 	    // Load dataset with d3
-	    d3.json("data/europe_data.json", function (error, data) {
+	    d3.json("scripts/data/europe_data.json", function (error, data) {
 	        if (error) throw error;
 
 	        // Prepare dataset for selected country
