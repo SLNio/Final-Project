@@ -36,7 +36,7 @@ function drawMap(family, familyIndex) {
     $('#maptitle').text(family + ' consumption in Europe (2013)');
 
     // Load dataset with d3
-    d3.json("scripts/data/europe_data.json", function (error, data) {
+    d3.json("data/europe_data.json", function (error, data) {
         if (error) throw error;
 
         var dataset = {}
