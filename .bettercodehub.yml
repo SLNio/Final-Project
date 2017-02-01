@@ -1,0 +1,7 @@
+exclude:
+- /scripts/old_files/.*
+- /scripts/script_src/.*
+component_depth: 1
+languages:
+- javascript
+- python
