@@ -72,6 +72,7 @@ window.onload = function() {
 	var settings = familySettings;
 	var option = ""
 
+	// Play introduction
 	showText()
 
 	// Initiate selection bar

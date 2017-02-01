@@ -44,6 +44,7 @@ h1 {
 #navbar {
 	background-color: #7ed0c4;
 	list-style-type: none;
+	margin-bottom: 0px;
 	overflow: hidden;	 	
 }
 
@@ -64,22 +65,25 @@ h1 {
 }
 
 #intro {
-	background: url("data/antibiotics.jpg") no-repeat;
-	margin-left: 80px;
+	background: url("data/antibiotics.jpg") no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 	min-height: 500px;
-	opacity: 0.4;
+	opacity: 0.2;
 	padding-top: 250px;
 }
 
 #introText {
 	color: black;
 	font-size: 20px;
-	opacity: 1px;
-/*	padding: 100px;*/
-	/*padding-top: 0px;*/
+	opacity: 1;
+	padding-right: 250px;
+	padding-left: 250px;
+	position: relative;
 	text-align: center;
-	/*vertical-align: middle;*/
-	width: 1200px;
+	bottom: 15em;
 }
 
 .nextprev {
@@ -98,9 +102,20 @@ h1 {
 	position: relative;
 }
 
+.d3-chord-tip {
+	position: absolute;	
+	background: rgba(253, 253, 253, 0.8);
+	border-color: lightgrey;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+  	color: black;
+  	font-size: 12px;
+	line-height: 1;
+  	padding: 8px;
+}
+
 #elements {
-/*	background-color: #7ed0c4;
-*/	
 	background: url('data/petridish.jpg');
 	float: right;
 	height: 606px;
@@ -155,9 +170,14 @@ h1 {
     right: 2px;
 }
 
-#intermediate {
+.intermediate {
 	min-height: 100px;
 	background-color: #02818a;
+}
+
+#smallIntermediate {
+	min-height: 30px;
+	background-color: #7ed0c4
 }
 
 #wrapper {
@@ -198,6 +218,7 @@ h1 {
 	float: right;
 	margin-right: 50px;
 	margin-top: 20px;
+	width: 400px;
 }
 
 #barchart {

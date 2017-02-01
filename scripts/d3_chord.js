@@ -96,6 +96,11 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 		    .startAngle(startAngle)
 			.endAngle(endAngle);
 
+		// Define the div for the tooltip
+		var tooltip = d3.select("body").append("div")
+		    .attr("class", "d3-chord-tip")	
+		    .style("opacity", 0);
+
 		// Initiate the outer arc labels
 		var g = svg.selectAll("g.group")
 			.data(chord.groups)
@@ -117,7 +122,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 					$el.show();
 					$el.find('.text').html('<i>'+ element[d.index] + '</i><br><br><br><br><br><b>' + element[d.index]  + ' resistance</b>: ' + Math.round(d.value) + '%')
 					if (d.index < (element.length - 3)) {
-						automaticScroll('#wrapper')
+						automaticScroll('#intermediate')
 						drawMap(element[d.index], d.index - bacteria.length - 1)
 					}
 				}
@@ -209,13 +214,24 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 				return (element[d.source.index] == "" ? "none" : "auto"); 
 			}) //Remove pointer events from dummy strokes
 			.attr("d", path)
-			.on("mouseover", function(d, i) { select(svg, undefined, 
-				opacityDefault, d.source.index, d.target.index, opacityLow)})
-			.on("mouseout", function(d, i) { select(svg, undefined, 
-				opacityDefault, d.source.index, d.target.index, opacityDefault)})
-			// .on("click", function(d) {chordTooltip})
-			// .on('click', function(d) {console.log("hallo")})
-
+			.on("mouseover", function(d){
+				select(svg, undefined, opacityDefault, d.source.index, 
+					d.target.index, opacityLow)
+				tooltip.transition()		
+	                .duration(200)		
+	                .style("opacity", .9);
+				tooltip.style("left", (d3.event.pageX) + "px")		
+	                .style("top", (d3.event.pageY - 28) + "px")
+	                .html( Math.round(d.source.value) + "% resistance to " + 
+				            element[d.target.index]);	
+			})
+			.on("mouseout", function(d) {
+				select(svg, undefined, opacityDefault, d.source.index, 
+					d.target.index, opacityDefault)	
+	            tooltip.transition()		
+	                .duration(500)		
+	                .style("opacity", 0);	
+        	});
 
 		svg.append("text")
 			.attr("class", "chordLabels")
@@ -232,15 +248,6 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 			.text("Bacteria")
 			.style("fill", "#a79e9e")
             .style("font-size", "18px")
-
-     	chordTooltip(svg, element)
-
-		// // Add tooltips
-		// chords.append("title")
-		// 	.text(function(d) {
-		// 		return Math.round(d.source.value) + "% resistance to " + 
-		// 			element[d.target.index]; 
-		// 	});	
 
 		// Update chord diagram, based on users selection
 		$("#select")

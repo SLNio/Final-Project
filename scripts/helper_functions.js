@@ -137,16 +137,6 @@ function select(svg, reset, opacityDefault, source, target, opacityLow) {
         .style("opacity", opacityLow);   
 } 
 
-function chordTooltip(svg, element) {
-    var chords = svg.selectAll("path.chord")
-    
-    chords.append("title")
-    .html(function(d) {
-        return Math.round(d.source.value) + "% resistance to " + 
-            element[d.target.index]; 
-    }); 
-}
-
 function generateBarchartData(data) {
 
     var dataset = {}
@@ -158,7 +148,7 @@ function generateBarchartData(data) {
         Tetracyclines = +d.Tetracyclines,
         Cephalosporins = +d.Cephalosporins,
         Penicillins = +d.Penicillins,
-        Quinolones = +d.Quinolones
+        Fluorquinolones = +d.Quinolones
 
         // store values per country
         dataset[d.Code] = [
@@ -166,7 +156,7 @@ function generateBarchartData(data) {
             {'family': 'Tetracyclines', 'value': Tetracyclines},
             {'family': 'Cephalosporins', 'value': Cephalosporins},
             {'family': 'Penicillins', 'value': Penicillins},
-            {'family': 'Quinolones', 'value': Quinolones}
+            {'family': 'Fluorquinolones', 'value': Fluorquinolones}
         ]
     })
 
