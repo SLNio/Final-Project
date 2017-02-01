@@ -144,3 +144,14 @@ Jan Maarten: data aanpassen, en een rare bug fixen. Lijkt ons ook wel realistisc
 **Afwezig:** Jan Maarten de Vries
 
 Lotte heeft alle fouten uit haar data gehaald en gewerkt aan de verschillende buttons. Vandaag gaat ze de assen van de grafieken fixen en de bronnen overal bij zetten. ShanLi heeft de bug uit haar kaart gehaald on hover, ze heeft gewerkt aan de layout (de informatiebox). Eline heeft aan de layout van haar website gewerkt en een aantal bugs verbeterd. Isa heeft tekst op haar website gezet en een legenda toegevoegd aan haar bubble chart. 
+
+
+## Week 4 Dag 3 - woensdag 1 februari
+
+
+**Aanwezig:** Lotte Slim, Eline Jacobse, Isa Leijdekkers, ShanLi Nio en Jan Maarten de Vries**
+
+
+![Selfie dag 13](https://github.com/SLNio/Final-Project/blob/master/doc/1feb.jpg)
+
+Iedereen is klaar met zijn of haar pagina. We hebben onze code aan elkaar laten zien, om elkaar te helpen met het verbeteren van de style hiervan. We hebben de code één voor één besproken met de gemaakte styleguide ernaast. Iedereen gaat vandaag verder met het mooi maken van de files en het schrijven van het verslag.
