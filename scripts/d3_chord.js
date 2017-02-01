@@ -127,7 +127,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 					}
 				}
 				else {
-					d3.json('data/info.json', function (error, information) {
+					d3.json('scripts/data/info.json', function (error, information) {
         				if (error) throw error;
         				
         				var dataset = {}
