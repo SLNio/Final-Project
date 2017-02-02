@@ -133,3 +133,15 @@ Regarding the coding, what still needs to be done is:
 </ol>
 
 Furthermore I will work on the report and improve my code.
+
+#day 17
+Implement a new tooltip for the stretched chord diagram and an text animation for the introduction slide. Make some final changes to the webpage layout.
+
+#day 18
+Write report.
+
+#day 19
+Improving code, finish all text document, fix the last remaining bugs.
+
+#day 20
+Presentations, finished with goodbye drinks and karaoke!!!

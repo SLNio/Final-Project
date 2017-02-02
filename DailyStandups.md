@@ -155,3 +155,9 @@ Lotte heeft alle fouten uit haar data gehaald en gewerkt aan de verschillende bu
 ![Selfie dag 13](https://github.com/SLNio/Final-Project/blob/master/doc/1feb.jpg)
 
 Iedereen is klaar met zijn of haar pagina. We hebben onze code aan elkaar laten zien, om elkaar te helpen met het verbeteren van de style hiervan. We hebben de code één voor één besproken met de gemaakte styleguide ernaast. Iedereen gaat vandaag verder met het mooi maken van de files en het schrijven van het verslag.
+
+
+## Week 4 Dag 4 - donderdag 2 februari
+
+
+Allemaal aanwezig
