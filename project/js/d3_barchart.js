@@ -35,8 +35,6 @@ function drawBarchart(country, code, family) {
 		x = d3.scale.ordinal().rangeRoundBands([0, width -40], .1);
 		y = d3.scale.linear().range([height, 0]);
 
-	console.log(y);
-
 	// Define axes
     var xAxis = d3.svg.axis()
     	.scale(x)
@@ -74,9 +72,7 @@ function drawBarchart(country, code, family) {
 
 		// scale the range of the data
 		x.domain(countrydata.map(function(d) { return d.family; }));
-  		y.domain([0, d3.max(countrydata, function(d) { console.log(countrydata); return d.value; })]);
-
-  		console.log(y(1));
+  		y.domain([0, d3.max(countrydata, function(d) { return d.value; })]);
 
   		// Draw X-axis
 		svg.append('g')
@@ -121,7 +117,7 @@ function drawBarchart(country, code, family) {
     updateBarchart = function(country, code, family) {
 
 	    var updatebar = svg.selectAll('.bar');
-	    console.log("--------------------------------------");
+	 
 	    // Change title of bargraph dynamically
 		$('#bartitle').text('Antibiotic consumption in ' + country + '');
 
@@ -133,7 +129,7 @@ function drawBarchart(country, code, family) {
 	        var dataset = generateBarchartData(data),
 	        	newdata = dataset[code];
 
-	        y.domain([0, d3.max(newdata, function(d) {console.log(newdata); return d.value; })]);
+	        y.domain([0, d3.max(newdata, function(d) { return d.value; })]);
 	 
 	 		// Update bars with smooth transition
 	        updatebar.data(newdata)
