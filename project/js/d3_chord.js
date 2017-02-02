@@ -28,6 +28,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 	// Add chart title
 	$('#chordtitle').text('Antibiotics and resistant bacteria');
 
+	// Remove old chord diagram
 	document.getElementById('chorddiagram').innerHTML = '';
 
 	// Define dimensions
@@ -72,7 +73,8 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 		var offset = Math.PI * (emptyStroke/(resistancePerc + emptyStroke)) 
 			/ 1.5;
 
-		//Include the offset in de start and end angle to rotate the Chord diagram clockwise
+		// Include the offset in de start and end angle to rotate the Chord 
+		// diagram clockwise
 		function startAngle(d) { return d.startAngle + offset; }
 		function endAngle(d) { return d.endAngle + offset; }
 
@@ -117,18 +119,22 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 			.on('mouseout', function(d, i) { fade(svg, undefined, 
 				opacityDefault, i, opacityDefault) })
 			.on('click', function(d) { 
+
+				// Show information for all antibiotic families
 				if (antibiotics.length < 7 && d.index > bacteria.length) {
 					$el = $('#infowindow')
 					$el.show();
 					$el.find('.text').html('<i>'+ element[d.index] + 
 						'</i><br><br><br><br><br><b>' + element[d.index]  + 
 						' resistance</b>: ' + Math.round(d.value) + '%')
+					// Call functions for bold antibiotic families
 					if (d.index < (element.length - 3)) {
 						automaticScroll('#intermediate')
 						drawMap(element[d.index], d.index - bacteria.length - 1)
 					}
 				}
 				else {
+					// Load data for information window
 					d3.json('scripts/info.json', function (error, information) {
         				if (error) throw error;
         				
@@ -142,6 +148,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 								dataset[d.name] = attributes
 				        })
 	   			        var info = dataset[element[d.index]]
+	   			        // Show information for bacteria
 	   			        if (d.index < bacteria.length) {
    			        		$el = $('#infowindow')
 							$el.show();
@@ -152,6 +159,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 								element[d.index] + '</b>: ' + Math.round(d.value) 
 								+ '%')
 	   			        }
+	   			        // Show information for individual antibiotics
 	   			        else {
 	   			        	$el = $('#infowindow')
 							$el.show();
@@ -164,6 +172,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 	   			        }
 					})
 				}
+				// Hide information window when closeButton is clicked
 				$(document).ready(function() {
 					$('#closeButton').on('click', function(e) { 
 						$('#infowindow').hide(); 
@@ -218,6 +227,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 				return (element[d.source.index] == '' ? 'none' : 'auto'); 
 			}) //Remove pointer events from dummy strokes
 			.attr('d', path)
+			// Highlight selected chord and show tooltip
 			.on('mouseover', function(d){
 				select(svg, undefined, opacityDefault, d.source.index, 
 					d.target.index, opacityLow)
@@ -229,6 +239,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 	                .html( Math.round(d.source.value) + "% resistance to " + 
 				            element[d.target.index]);	
 			})
+			// Show all chords
 			.on('mouseout', function(d) {
 				select(svg, undefined, opacityDefault, d.source.index, 
 					d.target.index, opacityDefault)	
@@ -237,6 +248,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 	                .style('opacity', 0);	
         	});
 
+		// Show outer arc labels
 		svg.append('text')
 			.attr('class', 'chordLabels')
 	        .attr('dx', '-24em')
