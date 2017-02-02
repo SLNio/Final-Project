@@ -65,7 +65,7 @@ h1 {
 }
 
 #intro {
-	background: url("data/antibiotics.jpg") no-repeat fixed;
+	background: url("img/antibiotics.jpg") no-repeat fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -110,7 +110,7 @@ h1 {
 }
 
 #elements {
-	background: url('data/petridish.jpg');
+	background: url('img/petridish.jpg');
 	float: right;
 	height: 606px;
 	opacity: 0.2;

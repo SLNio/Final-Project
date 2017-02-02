@@ -1,7 +1,8 @@
-Final-Project: Antibiotics and their resistant bacteria
+Final-Project: Antibiotic Resistance and Consumption
 ==================
 
 ###Shan Li Nio, 6222420
+
 
 Datavisualisation of the antibiotic consumption in europe and bacteria resistant to these antibiotics.
 

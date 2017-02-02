@@ -36,7 +36,7 @@ function drawMap(family, familyIndex) {
     $('#maptitle').text(family + ' consumption in Europe (2013)');
 
     // Load dataset with d3
-    d3.json("scripts/data/europe_data.json", function (error, data) {
+    d3.json("scripts/europe_data.json", function (error, data) {
         if (error) throw error;
 
         var dataset = {}
@@ -167,9 +167,8 @@ function drawMap(family, familyIndex) {
                             if (geography.id != selectedCountry) {
                                 clickColor[geography.id] = "#65b9bf"
                             }
-                            if (prevHoverCountry && prevHoverCountry != 
-                                geography.id  
-                                && selectedCountry != prevHoverCountry) 
+                            if (prevHoverCountry != geography.id && 
+                                    selectedCountry != prevHoverCountry) 
                             {
                                 group = getCountryGroup(prevHoverCountry, 
                                     domain, dataset, familyIndex);
