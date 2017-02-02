@@ -19,18 +19,18 @@ function showInstruction(div, elements) {
         .attr('dx', '0.8em')
         .attr('dy', '8em')
         .style('fill', '#969696')
-        .text('Click on the ' + elements + ' to explore more!')
+        .text('Click on the ' + elements + ' to explore more!');
 }  
 
+// Check if there is text in the barchart section
 function checkText() {
 
-    var text = d3.select("#barchart")[0][0].textContent
+    var text = d3.select("#barchart")[0][0].textContent;
     if (text == "Sorry no data available for this country" || 
         text == "Click on the countries to explore more!") {
         return true
     }
 } 
-
 
 // Update options of the selection bar
 function changeSelectionbar(bacteria, antibiotics) {
@@ -73,7 +73,7 @@ function makeChildren(selections, name, data) {
     });
 }
 
-// Index of the selected option
+// Get index of the selected option
 function getIndex(element, option) {
     for (var i = 0; i < element.length; i++) {
         if (element[i] == option){
@@ -82,7 +82,7 @@ function getIndex(element, option) {
     }
 }
 
-// Smooth automatic scroll function
+// Smooth automatic scroll function of 1000 milliseconds
 function automaticScroll(element){
     $('html, body').animate({
         scrollTop: $(element).offset().top
@@ -116,7 +116,7 @@ function apologize() {
         .attr('dx', '0.8em')
         .attr('dy', '8em')
         .style('fill', '#969696')
-        .text('Sorry no data available for this country')
+        .text('Sorry no data available for this country');
 }  
 
 // Manage visibility of chords when hovered over arcs or selected from bar
@@ -159,7 +159,7 @@ function select(svg, reset, opacityDefault, source, target, opacityLow) {
 
 function generateBarchartData(data) {
 
-    var dataset = {}
+    var dataset = {};
     data.forEach(function(d){
 
         // convert string data into integer data
@@ -177,7 +177,7 @@ function generateBarchartData(data) {
             {'family': 'Penicillins', 'value': Penicillins},
             {'family': 'Fluorquinolones', 'value': Fluorquinolones}
         ]
-    })
+    });
     return dataset;
 }
 
