@@ -33,7 +33,7 @@ window.onload = function() {
 		antibiotics: [
 			'Macrolides', 'Cephalosporins', 'Penicillins', 
 			'Fluorquinolones', 'Aminoglycosides', 'Carbapenems',
-		];
+		]
 	}
 	
 	var individualSettings = {
