@@ -33,7 +33,7 @@ window.onload = function() {
 		antibiotics: [
 			'Macrolides', 'Cephalosporins', 'Penicillins', 
 			'Fluorquinolones', 'Aminoglycosides', 'Carbapenems',
-		];
+		]
 	}
 	
 	var individualSettings = {
@@ -49,7 +49,7 @@ window.onload = function() {
 			'Rifampicin', 'Clindamycin', 'Trimethoprim-sulfa', 
 			'Amoxicillin', 'Ceftazidime', 'Ampicillin-sulbactam', 
 			'Ciprofloxacin', 'Moxifloxacin', 'Piperacillin-tazobactam',	
-		];
+		]
 	}
 
 	// Draw chord diagram for selected antibiotics option
