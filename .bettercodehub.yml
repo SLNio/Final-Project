@@ -1,4 +1,8 @@
 exclude:
+- /old_files/.*
+- /project/src_js/.*
+- /scripts/d3_chord.js
+- /scripts/d3_index.js
 - /scripts/d3_testchord.js
 - /scripts/old_files/.*
 - /scripts/script_src/.*
