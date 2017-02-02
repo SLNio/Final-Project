@@ -65,7 +65,7 @@ h1 {
 }
 
 #intro {
-	background: url("/img/antibiotics.jpg") no-repeat fixed;
+	background: url("/project/img/antibiotics.jpg") no-repeat fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
