@@ -128,11 +128,13 @@ Chord diagram style elements
 
 .nonclickTitles {
 	font-size: 12px;
+	cursor: pointer;
 }
 
 .clickTitles {
 	font-size: 12px;
 	font-weight: bold;
+	cursor: pointer;
 }
 
 /*
