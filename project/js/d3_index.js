@@ -19,50 +19,50 @@
 window.onload = function() {
 
 	var bacteria = [
-		"A. baumanii", "K. pneumoniae", "E. faecium", "N. gonorrhoeae", "Shigella", 
-		"M. tuberculosis", "P. mirabilis", "CoNS", "C. difficile", "P. aeruginosa", 
-		"S. pneumoniae", "E. coli", "S. aureus",
+		'A. baumanii', 'K. pneumoniae', 'E. faecium', 'N. gonorrhoeae', 'Shigella', 
+		'M. tuberculosis', 'P. mirabilis', 'CoNS', 'C. difficile', 'P. aeruginosa', 
+		'S. pneumoniae', 'E. coli', 'S. aureus',
 	]
 
 	var familySettings = {
-		data: "scripts/antibiotic_families.json",
-		label: "Antibiotic families",
+		data: 'scripts/antibiotic_families.json',
+		label: 'Antibiotic families',
 		sampleSize: 20,
 		resistancePerc: 531,
 		emptyPerc: 0.2,
 		antibiotics: [
-			"Macrolides", "Cephalosporins", "Penicillins", 
-			"Fluorquinolones", "Aminoglycosides", "Carbapenems",
+			'Macrolides', 'Cephalosporins', 'Penicillins', 
+			'Fluorquinolones', 'Aminoglycosides', 'Carbapenems',
 		]
 	}
 	
 	var individualSettings = {
-		data: "scripts/individual_antibiotic.json",
-		label: "Individual antibiotics",
+		data: 'scripts/individual_antibiotic.json',
+		label: 'Individual antibiotics',
 		sampleSize: 35,
 		resistancePerc: 859,
     	emptyPerc: 0.2,
     	antibiotics: [
-    		"Penicillin", "Streptomycin", "Chloramphenicol", "Isoniazid", 
-			"Vancomycin", "Tetracycline", "Oxacillin", "Methicillin", 
-			"Ampicillin", "Sulfamethoxazole", "Cefalotin", "Gentamycin", 
-			"Rifampicin", "Clindamycin", "Trimethoprim-sulfa", 
-			"Amoxicillin", "Ceftazidime", "Ampicillin-sulbactam", "Ciprofloxacin", 
-			"Moxifloxacin", "Piperacillin-tazobactam",	
+    		'Penicillin', 'Streptomycin', 'Chloramphenicol', 'Isoniazid', 
+			'Vancomycin', 'Tetracycline', 'Oxacillin', 'Methicillin', 
+			'Ampicillin', 'Sulfamethoxazole', 'Cefalotin', 'Gentamycin', 
+			'Rifampicin', 'Clindamycin', 'Trimethoprim-sulfa', 
+			'Amoxicillin', 'Ceftazidime', 'Ampicillin-sulbactam', 'Ciprofloxacin', 
+			'Moxifloxacin', 'Piperacillin-tazobactam',	
 		]
 	}
 
 	// Draw chord diagram for selected antibiotics option
-	$(".btn-default input")
-	    .on("change", function() {
+	$('.btn-default input')
+	    .on('change', function() {
 
 	    	// Get value of selected antibiotics option
 	        var option = $('.btn-default input:radio:checked').val()
 
-	        if(option == "family"){
+	        if(option == 'family'){
 	        	settings = familySettings;
 	        }
-	        else if (option == "individual"){
+	        else if (option == 'individual'){
 	        	settings = individualSettings;
 	        }
 	        changeSelectionbar(bacteria, settings.antibiotics)
@@ -70,7 +70,7 @@ window.onload = function() {
 		});
 
 	var settings = familySettings;
-	var option = ""
+	var option = ''
 
 	// Play introduction
 	showText()
@@ -81,11 +81,13 @@ window.onload = function() {
 	// Initiate chord diagram
 	drawChord(bacteria, settings.data, settings.label, settings.sampleSize, settings.resistancePerc, settings.emptyPerc, settings.antibiotics, option)
 
+	showInstruction('#barchart', 'countries')
+
 	// Initiate datamap
 	drawMap('Macrolides', 0);
 
 	// Initiate barchart
-	drawBarchart('Austria', 'AUT');
+	// drawBarchart('Austria', 'AUT');
 }
 
 	

@@ -11,6 +11,7 @@
 	<head>
         <meta charset="utf-8"/>
     	<title>Antibiotics and Antibiotic Resistance</title>
+        <link rel="shortcut icon" type="image/x-icon" href="project/img/pills.ico">
         <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Farsan|Fira+Sans+Condensed|Habibi|Open+Sans+Condensed:300|Raleway" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="project/css/select2.min.css" rel="stylesheet"/>
@@ -25,6 +26,7 @@
         <script type="text/javascript" src="project/src_js/d3.layout.chord.sort.js"></script>
         <script type="text/javascript" src="project/src_js/d3.stretched.chord.js"></script>
         <script type="text/javascript" src="project/js/helper_functions.js"></script>
+        <script type="text/javascript" src="project/js/datamap_functions.js"></script>
         <script type="text/javascript" src="project/js/d3_intro.js"></script>
         <script type="text/javascript" src="project/js/d3_chord.js"></script>
         <script type="text/javascript" src="project/js/d3_datamap.js"></script>
@@ -43,14 +45,13 @@
                 <li><a class="navigation" href="#chordwrapper">Antibiotic Resistance</a></li>
                 <li><a class="navigation" href="#header">Introduction</a></li>    
             </ul>
-            <div id="intro"></div>
-            <div id="introText">
-            </div>
+            <div id="intro" style="background-image: url('/project/img/antibiotics.jpg'); background-attachment: fixed"></div>
+            <div id="introText"></div>
             <div class="intermediate"></div>
             <div id="chordwrapper">
                 <h2 id="chordtitle"></h2>
                 <div id="chord">
-                <div id="elements"></div>
+                <div id="elements" style="background-image: url('/project/img/petridish.jpg')"></div>
                     <div id="selectbar">
                         <select id="select" class="js-example-basic-single" style="width: 200px">
                         </select>

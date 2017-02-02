@@ -9,20 +9,43 @@
 
 ***************************************************************************/
 
+// Apologize when no data is available 
+function showInstruction(div, elements) {
+
+    // Show apology text
+    var svg = d3.select(div)
+    svg.append('text')  
+        .attr('class', 'instruction')
+        .attr('dx', '0.8em')
+        .attr('dy', '8em')
+        .style('fill', '#969696')
+        .text('Click on the ' + elements + ' to explore more!')
+}  
+
+function checkText() {
+
+    var text = d3.select("#barchart")[0][0].textContent
+    if (text == "Sorry no data available for this country" || 
+        text == "Click on the countries to explore more!") {
+        return true
+    }
+} 
+
+
 // Update options of the selection bar
 function changeSelectionbar(bacteria, antibiotics) {
 
     var selections = [];
 
     // Remove old antibiotics selection from bar
-    document.getElementById('select').innerHTML = "";
+    document.getElementById('select').innerHTML = '';
 
-    makeChildren(selections, "Bacteria", bacteria)
-    makeChildren(selections, "Antibiotics", antibiotics)
+    makeChildren(selections, 'Bacteria', bacteria)
+    makeChildren(selections, 'Antibiotics', antibiotics)
 
     // Add selection bar with search field
     $(document).ready(function() {
-        $(".js-example-basic-single").select2({
+        $('.js-example-basic-single').select2({
         placeholder: 'Select an option',
         allowClear: true,
         data: selections
@@ -66,10 +89,6 @@ function automaticScroll(element){
     }, 1000);
 }
 
-function showInfo(){
-
-}
-
 // Assign countries to fillkey groups
 function getCountryGroup(country_code, domain, dataset, familyIndex) {
     var total = dataset[country_code];
@@ -83,64 +102,64 @@ function getCountryGroup(country_code, domain, dataset, familyIndex) {
     return 'group_default';
 }
 
-
 // Apologize when no data is available 
 function apologize() {
 
     // Remove old barchart and barchart title
-    document.getElementById('barchart').innerHTML = "";
-    document.getElementById('bartitle').innerHTML = "";
+    document.getElementById('barchart').innerHTML = '';
+    document.getElementById('bartitle').innerHTML = '';
 
     // Show apology text
     var svg = d3.select('#barchart')
-    svg.append("text")  
-        .attr("class", "apology")
-        .attr("dx", "0.8em")
-        .attr("dy", "8em")
-        .style("fill", '#969696')
-        .text("Sorry no data available for this country")
+    svg.append('text')  
+        .attr('class', 'apology')
+        .attr('dx', '0.8em')
+        .attr('dy', '8em')
+        .style('fill', '#969696')
+        .text('Sorry no data available for this country')
 }  
 
 // Manage visibility of chords when hovered over arcs or selected from bar
 function fade(svg, reset, opacityDefault, selected, opacityLow) {
     
     // Reset all selections
-    svg.selectAll("path.chord")
-        // check if this is not the one that is hovered over: apply opacity
-        .filter(function(d) { return d.source.index !== reset && d.target.index !== reset; })
+    svg.selectAll('path.chord')
+        // apply opacity to all non-selected items
+        .filter(function(d) { return d.source.index !== reset && d.target.index 
+            !== reset; })
         .transition()
-        .style("opacity", opacityDefault);    
+        .style('opacity', opacityDefault);    
 
     // Fade all chords that are not selected
-    svg.selectAll("path.chord")
-        // check if this is not the one that is hovered over: apply opacity
-        .filter(function(d) { return d.source.index !== selected && d.target.index !== selected })
+    svg.selectAll('path.chord')
+        .filter(function(d) { return d.source.index !== selected && 
+            d.target.index !== selected })
         .transition()
-        .style("opacity", opacityLow);   
+        .style('opacity', opacityLow);   
 } 
 
 // Manage visibility of chords when hovered over chords
 function select(svg, reset, opacityDefault, source, target, opacityLow) {
     
     // Reset all selections
-    svg.selectAll("path.chord")
-        // check if this is not the one that is hovered over: apply opacity
-        .filter(function(d) { return d.source.index !== reset || d.target.index !== reset;})
+    svg.selectAll('path.chord')
+        // apply opacity to all non-selected items
+        .filter(function(d) { return d.source.index !== reset || d.target.index 
+            !== reset;})
         .transition()
-        .style("opacity", opacityDefault);    
+        .style('opacity', opacityDefault);    
 
     // Fade all chords that are not selected
-    svg.selectAll("path.chord")
-        // check if this is not the one that is hovered over: apply opacity
-        .filter(function(d) { return d.source.index !== source || d.target.index !== target;})
+    svg.selectAll('path.chord')
+        .filter(function(d) { return d.source.index !== source || d.target.index 
+            !== target;})
         .transition()
-        .style("opacity", opacityLow);   
+        .style('opacity', opacityLow);   
 } 
 
 function generateBarchartData(data) {
 
     var dataset = {}
-
     data.forEach(function(d){
 
         // convert string data into integer data
@@ -159,7 +178,6 @@ function generateBarchartData(data) {
             {'family': 'Fluorquinolones', 'value': Fluorquinolones}
         ]
     })
-
     return dataset;
 }
 

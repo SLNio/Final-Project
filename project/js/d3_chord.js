@@ -28,7 +28,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 	// Add chart title
 	$('#chordtitle').text('Antibiotics and resistant bacteria');
 
-	document.getElementById('chorddiagram').innerHTML = "";
+	document.getElementById('chorddiagram').innerHTML = '';
 
 	// Define dimensions
 	var margin = {top: 100, right: 60, bottom: 50, left: 150},
@@ -38,13 +38,13 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 	    outerRadius = innerRadius * 1.05;
 
 	// Initiate the SVG
-	var svg = d3.select("#chorddiagram").append("svg:svg")
-		.attr("class", "diagram")
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
-		.append("svg:g")
-	    .attr("transform", "translate(" + (margin.left + width / 2) + "," + 
-	    	(margin.top + height / 2) + ")");
+	var svg = d3.select('#chorddiagram').append('svg:svg')
+		.attr('class', 'diagram')
+	    .attr('width', width + margin.left + margin.right)
+	    .attr('height', height + margin.top + margin.bottom)
+		.append('svg:g')
+	    .attr('transform', 'translate(' + (margin.left + width / 2) + ',' + 
+	    	(margin.top + height / 2) + ')');
 
 	// Define design elements of the chord diagram
 	var emptyStroke = Math.round(resistancePerc*emptyPerc), //emptyPerc in units
@@ -55,7 +55,7 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 
 	// Define elements of the right arc and the space between the arcs
 	var bacteria = bacteria,
-	emptySpace = [""];
+		emptySpace = [''];
 
 	// Store all data elements in a list
 	var element = bacteria.concat(emptySpace, antibiotics, emptySpace);
@@ -97,30 +97,32 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 			.endAngle(endAngle);
 
 		// Define the div for the tooltip
-		var tooltip = d3.select("body").append("div")
-		    .attr("class", "d3-chord-tip")	
-		    .style("opacity", 0);
+		var tooltip = d3.select('body').append('div')
+		    .attr('class', 'd3-chord-tip')	
+		    .style('opacity', 0);
 
 		// Initiate the outer arc labels
-		var g = svg.selectAll("g.group")
+		var g = svg.selectAll('g.group')
 			.data(chord.groups)
-		  .enter().append("svg:g")
-			.attr("class", function(d) {return "group " + element[d.index];})
-			.attr("d", arc)
-			.attr("transform", function(d, i) { // Pull the two halves apart
+		  .enter().append('svg:g')
+			.attr('class', function(d) {return 'group ' + element[d.index];})
+			.attr('d', arc)
+			.attr('transform', function(d, i) { // Pull the two halves apart
 				d.pullOutSize = pullOutSize * (d.startAngle > (Math.PI - offset) 
 					? -1 : 1);
-				return "translate(" + d.pullOutSize + ',' + 0 + ")";
+				return 'translate(' + d.pullOutSize + ',' + 0 + ')';
 			})
-			.on("mouseover", function(d, i) { fade(svg, undefined, 
+			.on('mouseover', function(d, i) { fade(svg, undefined, 
 				opacityDefault, i, opacityLow)})
-			.on("mouseout", function(d, i) { fade(svg, undefined, 
+			.on('mouseout', function(d, i) { fade(svg, undefined, 
 				opacityDefault, i, opacityDefault) })
-			.on("click", function(d) { 
+			.on('click', function(d) { 
 				if (antibiotics.length < 7 && d.index > bacteria.length) {
 					$el = $('#infowindow')
 					$el.show();
-					$el.find('.text').html('<i>'+ element[d.index] + '</i><br><br><br><br><br><b>' + element[d.index]  + ' resistance</b>: ' + Math.round(d.value) + '%')
+					$el.find('.text').html('<i>'+ element[d.index] + 
+						'</i><br><br><br><br><br><b>' + element[d.index]  + 
+						' resistance</b>: ' + Math.round(d.value) + '%')
 					if (d.index < (element.length - 3)) {
 						automaticScroll('#intermediate')
 						drawMap(element[d.index], d.index - bacteria.length - 1)
@@ -133,11 +135,11 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
         				var dataset = {}
 				        information.forEach(function(d){
 				        	var attributes = {}
-				        	name = d.name
-							attributes['family'] = d.family
-							attributes['characteristics'] = d.characteristics
-							attributes['fullname'] = d.fullname
-							dataset[d.name] = attributes
+					        	name = d.name
+								attributes['family'] = d.family
+								attributes['characteristics'] = d.characteristics
+								attributes['fullname'] = d.fullname
+								dataset[d.name] = attributes
 				        })
 	   			        var info = dataset[element[d.index]]
 	   			        if (d.index < bacteria.length) {
@@ -156,7 +158,9 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 							$el.find('.text').html('<i>'+ element[d.index] + 
 								'</i><br><br><b>Family</b>: ' + info.family  + 
 								'<br><br><b>Bacterial target</b>: ' + 
-								info.characteristics + '<br><br><b>'+ element[d.index]  + ' resistance</b>: ' + Math.round(d.value) + '%')
+								info.characteristics + '<br><br><b>'+ 
+								element[d.index]  + ' resistance</b>: ' 
+								+ Math.round(d.value) + '%')
 	   			        }
 					})
 				}
@@ -168,90 +172,90 @@ function drawChord(bacteria, data, label, sampleSize, resistancePerc, emptyPerc,
 			})
 		
 		// Draw the outer arcs
-		g.append("path")
-			  .attr("class", "arc")
-			  .style("stroke", function(d,i) { return (element[i] === "" ? 
-			  	"none" : "#19BAA2"); })
-			  .style("fill", function(d,i) { return (element[i] === "" ? 
-			  	"none" : "#19BAA2"); })
-			  .style("pointer-events", function(d,i) { 
-			  	return (element[i] === "" ? "none" : "auto"); 
+		g.append('path')
+			  .attr('class', 'arc')
+			  .style('stroke', function(d,i) { return (element[i] === "" ? 
+			  	'none' : '#19BAA2'); })
+			  .style('fill', function(d,i) { return (element[i] === "" ? 
+			  	'none' : '#19BAA2'); })
+			  .style('pointer-events', function(d,i) { 
+			  	return (element[i] === '' ? 'none' : 'auto'); 
 			  })
 			  .attr("d", arc)
 
 		// Draw the outer arc labels
-		g.append("text")
+		g.append('text')
 		    .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2 + offset})
-		    .attr("dy", ".35em")
-		    .attr("class", function(d) {
+		    .attr('dy', '.35em')
+		    .attr('class', function(d) {
 		    	if (antibiotics.length < 7 && d.index > bacteria.length && 
 					d.index < (element.length - 3)) {
-		    		return "clickTitles"
+		    		return 'clickTitles'
 				}
 				else {
-					return "nonclickTitles"
+					return 'nonclickTitles'
 				}
 			})
-		    .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" 
+		    .attr('text-anchor', function(d) { return d.angle > Math.PI ? 'end' 
 		    	: null; })
-		    .attr("transform", function(d, i) {
+		    .attr('transform', function(d, i) {
 		    	var c = arc.centroid(d);
-				return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-				+ "translate(" + (innerRadius + labelDistance) + ")"
-				+ (d.angle > Math.PI ? "rotate(180)" : "");
+				return 'rotate(' + (d.angle * 180 / Math.PI - 90) + ')'
+					+ 'translate(' + (innerRadius + labelDistance) + ')'
+					+ (d.angle > Math.PI ? 'rotate(180)' : '');
 		    })
 		    .text(function(d,i) { return element[i]; })
 
 		// Draw the inner chords
-		var chords = svg.selectAll("path.chord")
+		var chords = svg.selectAll('path.chord')
 			.data(chord.chords)
-		  .enter().append("path")
-			.attr("class", "chord")
-			.style("fill", function(d,i) { return (element[d.source.index] == "" 
-				? "none" : "#7ED0C4"); })
-			.style("opacity", opacityDefault)
-			.style("pointer-events", function(d,i) { 
-				return (element[d.source.index] == "" ? "none" : "auto"); 
+		  .enter().append('path')
+			.attr('class', 'chord')
+			.style('fill', function(d,i) { return (element[d.source.index] == '' 
+				? 'none' : '#7ED0C4'); })
+			.style('opacity', opacityDefault)
+			.style('pointer-events', function(d,i) { 
+				return (element[d.source.index] == '' ? 'none' : 'auto'); 
 			}) //Remove pointer events from dummy strokes
-			.attr("d", path)
-			.on("mouseover", function(d){
+			.attr('d', path)
+			.on('mouseover', function(d){
 				select(svg, undefined, opacityDefault, d.source.index, 
 					d.target.index, opacityLow)
 				tooltip.transition()		
 	                .duration(200)		
-	                .style("opacity", .9);
-				tooltip.style("left", (d3.event.pageX) + "px")		
-	                .style("top", (d3.event.pageY - 28) + "px")
+	                .style('opacity', .9);
+				tooltip.style('left', (d3.event.pageX) + 'px')		
+	                .style('top', (d3.event.pageY - 28) + 'px')
 	                .html( Math.round(d.source.value) + "% resistance to " + 
 				            element[d.target.index]);	
 			})
-			.on("mouseout", function(d) {
+			.on('mouseout', function(d) {
 				select(svg, undefined, opacityDefault, d.source.index, 
 					d.target.index, opacityDefault)	
 	            tooltip.transition()		
 	                .duration(500)		
-	                .style("opacity", 0);	
+	                .style('opacity', 0);	
         	});
 
-		svg.append("text")
-			.attr("class", "chordLabels")
-	        .attr("dx", "-24em")
-			.attr("dy", "-13em")
+		svg.append('text')
+			.attr('class', 'chordLabels')
+	        .attr('dx', '-24em')
+			.attr('dy', '-13em')
 			.text(label)
-			.style("fill", "#a79e9e")
-            .style("font-size", "18px")
+			.style('fill', '#a79e9e')
+            .style('font-size', '18px')
 
-		svg.append("text")
-			.attr("class", "chordLabels")
-	        .attr("dx", "15em")
-			.attr("dy", "-13em")
-			.text("Bacteria")
-			.style("fill", "#a79e9e")
-            .style("font-size", "18px")
+		svg.append('text')
+			.attr('class', 'chordLabels')
+	        .attr('dx', '15em')
+			.attr('dy', '-13em')
+			.text('Bacteria')
+			.style('fill', '#a79e9e')
+            .style('font-size', '18px')
 
 		// Update chord diagram, based on users selection
-		$("#select")
-		    .on("change", function(event) {
+		$('#select')
+		    .on('change', function(event) {
 
 		     	// Get value of selected option
 		        var option = $(this).val();

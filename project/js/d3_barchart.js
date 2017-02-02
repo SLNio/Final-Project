@@ -23,7 +23,7 @@ var updateBarchart;
 function drawBarchart(country, code, family) {
 
 	// Remove apology text
-    document.getElementById('barchart').innerHTML = "";
+    document.getElementById('barchart').innerHTML = '';
 
 	// Change title of bargraph dynamically
 	$('#bartitle').text('Antibiotic consumption in ' + country + '');
@@ -35,6 +35,8 @@ function drawBarchart(country, code, family) {
 		x = d3.scale.ordinal().rangeRoundBands([0, width -40], .1);
 		y = d3.scale.linear().range([height, 0]);
 
+	console.log(y);
+
 	// Define axes
     var xAxis = d3.svg.axis()
     	.scale(x)
@@ -45,25 +47,25 @@ function drawBarchart(country, code, family) {
 	    .orient("left");
 
 	// Define svg element
-	var svg = d3.select("#barchart")
-	    .attr("width", width)
-	    .attr("height", height)
-	  .append("g")
-    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	var svg = d3.select('#barchart')
+	    .attr('width', width)
+	    .attr('height', height)
+	  .append('g')
+    	.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     // Define tooltip
 	var tip = d3.tip()
   		.attr('class', 'd3-tip')
-  		.attr("transform", "rotate(-45)")
+  		.attr('transform', 'rotate(-45)')
   		.offset([-10, 0])
   		.html(function(d) {
-    		return "<strong>Consumption</strong><span>: </span><span style='color:red'>"
-    			+ d.value + "</span>";
+    		return "<strong>Consumption</strong><span>: </span><span \
+    			style='color:red'>" + d.value + "</span>";
   		})
   	svg.call(tip);
 
     // Load dataset with d3
-	d3.json("scripts/europe_data.json", function (error, data) {
+	d3.json('scripts/europe_data.json', function (error, data) {
 		if (error) throw error;
 
 		// Prepare dataset for selected country
@@ -72,42 +74,45 @@ function drawBarchart(country, code, family) {
 
 		// scale the range of the data
 		x.domain(countrydata.map(function(d) { return d.family; }));
-  		y.domain([0, d3.max(countrydata, function(d) { return d.value; })]);
+  		y.domain([0, d3.max(countrydata, function(d) { console.log(countrydata); return d.value; })]);
+
+  		console.log(y(1));
 
   		// Draw X-axis
-		svg.append("g")
-		    .attr("class", "x axis")
-		    .attr("transform", "translate(0," + height + ")")
+		svg.append('g')
+		    .attr('class', 'x axis')
+		    .attr('transform', 'translate(0,' + height + ')')
 		    .call(xAxis)
-		  .selectAll("text")
-	        .style("text-anchor", "end")
-	        .attr("dx", "-0.2em")
-	        .attr("dy", "0.65em")
-	        .attr("transform", "rotate(-45)");
+		  .selectAll('text')
+	        .style('text-anchor', 'end')
+	        .attr('dx', '-0.2em')
+	        .attr('dy', '0.65em')
+	        .attr('transform', 'rotate(-45)');
 
 	    // Draw Y-axis
-		svg.append("g")
-		    .attr("class", "y axis")
-		    .attr("id", "y")
+		svg.append('g')
+		    .attr('class', 'y axis')
+		    .attr('id', 'y')
 		    .call(yAxis)
-		  .append("text")
-		    .attr("transform", "rotate(-90)")
-	        .attr("y", 5)
-	        .attr("dx", "-2.6em")
-	        .attr("dy", "-3.5em")
-	        .style("text-anchor", "end")
-	        .text("Consumption (Defined Daily Dose)");
+		  .append('text')
+		    .attr('transform', 'rotate(-90)')
+	        .attr('y', 5)
+	        .attr('dx', '-2.6em')
+	        .attr('dy', '-3.5em')
+	        .style('text-anchor', 'end')
+	        .text('Consumption (Defined Daily Dose)');
 
 	    // Draw bars
-		svg.selectAll(".bar")
+		svg.selectAll('.bar')
 		    .data(countrydata)
-		  .enter().append("rect")
-		    .attr("class", "bar")
-		    .attr("x", function(d) { return x(d.family); })
-		    .attr("y", function(d) { return y(d.value); })
-		    .attr("height", function(d) { return height - y(d.value); })
-		    .attr("width", 55)
-		    .style("fill", function(d, i) { return d.family == family ? '#02818a' : '#7ED0C4'; })
+		  .enter().append('rect')
+		    .attr('class', 'bar')
+		    .attr('x', function(d) { return x(d.family); })
+		    .attr('y', function(d) { return y(d.value); })
+		    .attr('height', function(d) { return height - y(d.value); })
+		    .attr('width', 55)
+		    .style('fill', function(d, i) { return d.family == family ? 
+		    	'#02818a' : '#7ED0C4'; })
 		    .on('mouseover', tip.show)
       		.on('mouseout', tip.hide);
     })
@@ -115,31 +120,35 @@ function drawBarchart(country, code, family) {
 	// Update barchart for selected country
     updateBarchart = function(country, code, family) {
 
-	    var updatebar = svg.selectAll('.bar')
-
+	    var updatebar = svg.selectAll('.bar');
+	    console.log("--------------------------------------");
 	    // Change title of bargraph dynamically
 		$('#bartitle').text('Antibiotic consumption in ' + country + '');
 
 	    // Load dataset with d3
-	    d3.json("scripts/europe_data.json", function (error, data) {
+	    d3.json('scripts/europe_data.json', function (error, data) {
 	        if (error) throw error;
 
-	        // Prepare dataset for selected country
+	        // Prepare new dataset for selected country
 	        var dataset = generateBarchartData(data),
 	        	newdata = dataset[code];
+
+	        y.domain([0, d3.max(newdata, function(d) {console.log(newdata); return d.value; })]);
 	 
 	 		// Update bars with smooth transition
 	        updatebar.data(newdata)
 	            .transition().delay(function (d,i){ return i * 300;})
 	            .duration(1000)
-	            .attr("height", function(d) { return height - y(d.value); })
-	            .attr("y", function(d) { return y(d.value); })
-	            .style("fill", function(d, i) { return d.family == family ? '#02818a' : '#7ED0C4'; })
+	            .attr('y', function(d) {return y(d.value); })	            
+	            .attr('height', function(d) { return height - y(d.value); })
+	            .style('fill', function(d, i) { return d.family == family ? 
+	            	'#02818a' : '#7ED0C4'; });
 
 	        // Update Y-axis with smooth transition
-	        svg.select("#y")
+	        
+	        svg.select('#y')
 	            .transition().duration(1000)
-	            .call(yAxis)
+	            .call(yAxis);
 	    })
 	}
 }
