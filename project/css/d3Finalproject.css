@@ -8,13 +8,19 @@
     Description: Stylesheet of the d3Finalproject.html document.
 
 ***************************************************************************/
+/*
+Container for all body elements
 
+*/
 #main {
 	margin: 0 auto;	
 	max-width: 1400px;
 	min-width: 1200px;
 }
 
+/*
+Header style elements
+*/
 .titles {
 	font-family: 'Habibi', serif;
 	color: white;
@@ -41,6 +47,9 @@ h1 {
 	width:220px;
 }
 
+/*
+Navigation bar style elements
+*/
 #navbar {
 	background-color: #7ed0c4;
 	list-style-type: none;
@@ -64,6 +73,9 @@ h1 {
   	text-decoration: none;
 }
 
+/*
+Introduction section style elements
+*/
 #intro {
 	min-height: 500px;
 	opacity: 0.2;
@@ -80,6 +92,9 @@ h1 {
 	bottom: 15em;
 }
 
+/*
+Chord diagram style elements
+*/
 #chordtitle {
 	height: 30px;
 	width: 900px;
@@ -120,12 +135,18 @@ h1 {
 	font-weight: bold;
 }
 
+/*
+Selection bar style elements
+*/
 #selectbar {
 	position: absolute;
 	right: 100px;
 	top: 80px;
 }
 
+/*
+Radio button style elements
+*/
 .btn-group {
 	bottom: 10px;
 	position: absolute;
@@ -137,6 +158,9 @@ h1 {
 	border-radius: 3px;
 }
 
+/*
+Information window style elements
+*/
 #infowindow {
 	background-color: rgba(255, 255, 255, 0.7);
 	border-color: #02818a;
@@ -158,6 +182,9 @@ h1 {
     right: 2px;
 }
 
+/*
+Bars in between webpage sections
+*/
 .intermediate {
 	min-height: 100px;
 	background-color: #02818a;
@@ -168,6 +195,9 @@ h1 {
 	background-color: #7ed0c4
 }
 
+/*
+Antibiotic consumption section style elements
+*/
 #wrapper {
 	min-height: 500px;
 	padding-bottom: 100px;
@@ -176,9 +206,11 @@ h1 {
 	min-width: 1200px;
 }
 
+/*
+Datamap style elements
+*/
 #mapwrapper {
 	float: left;
-	/*width: 750px;*/
 }
 
 #maptitle {
@@ -202,6 +234,9 @@ h1 {
 	text-align: center;
 }
 
+/*
+Barchart style elements
+*/
 #barwrapper {
 	float: right;
 	margin-right: 50px;
@@ -215,7 +250,6 @@ h1 {
 	width: 400px;
 }
 
-/* Style barchart axes */
 .axis path,
 .axis line 
 {
@@ -232,7 +266,6 @@ h1 {
 	font-size: 12px
 }
 
-/* Characteristics of tooltip */
 .d3-tip {
 	background: rgba(0, 0, 0, 0.8);
 	border-radius: 2px;
@@ -242,7 +275,6 @@ h1 {
   	padding: 12px;
 }
 
-/* Small triangle extender for the tooltip */
 .d3-tip:after 
 {
   	box-sizing: border-box;
@@ -276,6 +308,9 @@ h1 {
 	padding-top: 20px;
 }
 
+/*
+Reference section style elements
+*/
 #referenceTitle {
 	margin-left: 40px;
 }
