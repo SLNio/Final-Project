@@ -30,9 +30,9 @@ function drawBarchart(country, code, family) {
 
 	// Define dimensions
 	var width = 360,
-	    height = 300;
-		margin = {top: 10, left: 50};
-		x = d3.scale.ordinal().rangeRoundBands([0, width -40], .1);
+	    height = 300,
+		margin = {top: 10, left: 50},
+		x = d3.scale.ordinal().rangeRoundBands([0, width -40], .1),
 		y = d3.scale.linear().range([height, 0]);
 
 	// Define axes
@@ -58,7 +58,7 @@ function drawBarchart(country, code, family) {
   		.offset([-10, 0])
   		.html(function(d) {
     		return "<strong>Consumption</strong><span>: </span><span \
-    			style='color:red'>" + d.value + "</span>";
+    			style='color:red'>" + d.value + "</span>"
   		})
   	svg.call(tip);
 
@@ -67,8 +67,8 @@ function drawBarchart(country, code, family) {
 		if (error) throw error;
 
 		// Prepare dataset for selected country
-		var dataset = generateBarchartData(data)
-		var countrydata = dataset[code]
+		var dataset = generateBarchartData(data),
+			countrydata = dataset[code];
 
 		// scale the range of the data
 		x.domain(countrydata.map(function(d) { return d.family; }));
@@ -141,7 +141,6 @@ function drawBarchart(country, code, family) {
 	            	'#02818a' : '#7ED0C4'; });
 
 	        // Update Y-axis with smooth transition
-	        
 	        svg.select('#y')
 	            .transition().duration(1000)
 	            .call(yAxis);

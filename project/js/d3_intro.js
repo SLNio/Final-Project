@@ -23,14 +23,16 @@ function showText(){
 		resistance levels.',
 		'This page was created to visualize the different types of antibiotic\
 		resistance and the consumption of antibiotic families in Europe.'	
-	]
+	];
 
-	// Repeating animation of introduction text
 	var i = 0;
 
 	$('#introText').text(text[i])
+	
+	// Show each text section for 9000 milliseconds
 	setInterval(function() {
 
+		// Repeating animation of introduction text
 		i = (i + 1) % 3;
 		$('#introText').text(text[i])
 

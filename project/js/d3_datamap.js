@@ -48,7 +48,7 @@ function drawMap(family, familyIndex) {
             penicillins = +d.Penicillins,
             quinolones = +d.Quinolones
             dataset[d.Code] = [macrolides, cephalosporins, penicillins, 
-                quinolones]
+                quinolones];
         })
 
         // Remove old map
@@ -95,7 +95,7 @@ function drawMap(family, familyIndex) {
             {name: 'group_3', color: '#d7301f'},
             {name: 'group_4', color: '#b30000'},
             {name: 'group_5', color: '#7f0000'},
-            {name: 'group_default', color: 'lightgrey'},
+            {name: 'group_default', color: 'lightgrey'}
         ];
 
         // Draw the datamap
@@ -148,7 +148,7 @@ function drawMap(family, familyIndex) {
                         'No data available']
 
                     var legend = datamap.svg.append('g')
-                      .attr('class', 'legend')
+                      .attr('class', 'legend');
 
                     // Add legendtitle
                     var legendtitle = legend.append('text')
@@ -156,7 +156,7 @@ function drawMap(family, familyIndex) {
                         .attr('dx', '-39em')
                         .attr('dy', '1.9em')
                         .attr('transform', 'rotate(-90)')
-                        .text('Consumption (Defined Daily Dose)')
+                        .text('Consumption (Defined Daily Dose)');
 
                     // Add legend rectangles
                     legend.selectAll('.box')
