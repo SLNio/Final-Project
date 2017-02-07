@@ -1,3 +1,5 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/SLNio/Final-Project)](https://bettercodehub.com)
+
 ##Datavisualising Project: Antibiotic Resistance and Consumption
 
 ###Shan Li Nio, 6222420
