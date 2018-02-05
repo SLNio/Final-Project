@@ -55,6 +55,3 @@ https://storify.com/VivaKi/the-innovation-petri-dish-hidden-in-plain-sight
 http://eeid.cornell.edu/
 http://www.clickescolar.com.br/bacterias-patogenicas.htm
 http://www.pharmamicroresources.com/2016_01_01_archive.html
-
-
-Dit is een test.
