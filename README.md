@@ -16,6 +16,9 @@ Due to the worldwide frequent use of antibiotics, the number of bacteria resista
 
 ![References](https://github.com/SLNio/Final-Project/blob/master/doc/reference_screen.jpg)
 
+##Demo link
+https://slnio.github.io/Final-Project/
+
 ##Copyright
 
 Copyright 2017 Shan Li Nio
